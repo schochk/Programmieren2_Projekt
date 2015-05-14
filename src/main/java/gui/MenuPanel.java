@@ -10,10 +10,9 @@ import java.awt.event.ActionListener;
  */
 public class MenuPanel extends JPanel {
 
-    public MenuPanel(){}
-
 
     public void menuComponent() {
+
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(Color.YELLOW);
 
