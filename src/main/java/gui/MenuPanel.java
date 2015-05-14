@@ -13,6 +13,8 @@ public class MenuPanel extends JPanel {
 
     public void menuComponent() {
 
+        System.out.println("Hello");
+
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(Color.YELLOW);
 
