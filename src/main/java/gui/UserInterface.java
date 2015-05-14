@@ -13,8 +13,11 @@ public class UserInterface extends JPanel {
 
         JFrame mainFrame = new JFrame();
 
+
+
         JPanel panelMain = new JPanel();
         panelMain.setLayout(new BorderLayout());
+
 
 
         MenuPanel panelMenu = new MenuPanel();          //MenuPanel
@@ -26,14 +29,22 @@ public class UserInterface extends JPanel {
         panelPlot.setLayout(new GridLayout(2, 1));
         panelMain.add(panelPlot, BorderLayout.CENTER);
 
-        ScatterPlot scatterPlot = new ScatterPlot();
+        //Point p = new Point(); p.setLocation(20,20);
+
+
+
+
+        /*ScatterPlot scatterPlot = new ScatterPlot();
         scatterPlot.scatterPlotComponent();
         panelPlot.add(scatterPlot);
-
-        /*JPanel scatterPlot = new JPanel();
+*/
+        JPanel scatterPlot = new JPanel();
         scatterPlot.setBackground(Color.BLUE);
         panelPlot.add(scatterPlot);
-            */
+        //scatterPlot.add(Point); punkte einfügen
+
+
+
         JPanel panelHistogram = new JPanel();
         panelHistogram.setLayout(new GridLayout(1, 2));
         panelPlot.add(panelHistogram);
