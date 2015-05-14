@@ -10,14 +10,10 @@ import java.awt.event.ActionListener;
  */
 public class MenuPanel extends JPanel {
 
+    public MenuPanel(){}
 
 
-
-        public void  MenuPanel1() {
-
-        System.out.println("Hallo");
-
-
+    public void menuComponent() {
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(Color.YELLOW);
 
@@ -56,10 +52,8 @@ public class MenuPanel extends JPanel {
 
         JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
         panelMenu.add(drawingLineCheckBox);
-
-
     }
 
 
-    }
+}
 
