@@ -8,10 +8,13 @@ import java.awt.*;
  */
 public class ScatterPlot extends JPanel {
 
-    public void scatterPlot() {
+    public void scatterPlotComponent() {
 
         JPanel scatterPlot = new JPanel();
         scatterPlot.setBackground(Color.BLUE);
+
+        JLabel test = new JLabel("Test");
+        scatterPlot.add(test);
 
         add(scatterPlot);
 
