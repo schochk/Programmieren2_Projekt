@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 public class MenuPanel extends JPanel {
 
 
-        public MenuPanel() {
+
+
+        public void  MenuPanel1() {
 
         System.out.println("Hallo");
 

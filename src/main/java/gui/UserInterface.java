@@ -18,7 +18,7 @@ public class UserInterface extends JPanel {
 
 
         MenuPanel menuPanel = new MenuPanel();
-        panel0.add(menuPanel, BorderLayout.NORTH);
+        panel0.add(panelMenu, BorderLayout.NORTH);
 
 
         //panelMenu(panel0);
