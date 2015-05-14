@@ -22,7 +22,6 @@ public class UserInterface extends JPanel {
         panel0.add(panelMenu, BorderLayout.NORTH);
 
 
-
         //panelMenu(panel0);
 
         JPanel panelPlot = new JPanel();
@@ -57,6 +56,8 @@ public class UserInterface extends JPanel {
         frame.setVisible(true);
 
     }
+
+
 
     private static void panelDrawingLeft(JPanel panelBalken) {
         JPanel panelDL = new JPanel();

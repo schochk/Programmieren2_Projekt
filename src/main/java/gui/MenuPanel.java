@@ -18,7 +18,6 @@ public class MenuPanel extends JPanel {
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(Color.YELLOW);
 
-
         JButton data = new JButton("Datei");
         panelMenu.add(data);
 
@@ -53,6 +52,8 @@ public class MenuPanel extends JPanel {
 
         JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
         panelMenu.add(drawingLineCheckBox);
+
+        add(panelMenu);
     }
 
 
