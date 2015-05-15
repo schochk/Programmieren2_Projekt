@@ -1,6 +1,7 @@
 package gui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,11 +13,12 @@ public class MenuPanel extends JPanel {
 
     public void menuComponent() {
 
-        /*Graphics2D m = (Graphics2D) k;
-        m.setColor(Color.YELLOW);
-        m.fillRect(0,0, this.getWidth(), this.getHeight());
-        */
+        setBackground(Color.YELLOW);
 
+
+
+        JLabel test = new JLabel("Test");
+        add(test);
 
         JButton data = new JButton("Datei");
         add(data);
@@ -52,9 +54,9 @@ public class MenuPanel extends JPanel {
 
         JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
         add(drawingLineCheckBox);
-
-
     }
+
+
 
 }
 

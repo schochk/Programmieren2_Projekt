@@ -11,21 +11,13 @@ public class ScatterPlot extends JPanel {
 
     public void scatterPlotComponent() {
 
-        /*JPanel scatterPlot = new JPanel();
-        scatterPlot.setBackground(Color.BLUE);
 
-        JLabel test = new JLabel("Test");
-        scatterPlot.add(test);
-        add(scatterPlot);*/
-
-        JLabel test = new JLabel("Test");
+        JLabel test = new JLabel("ScatterPlot");
         add(test);
 
     }
 
     public void paintComponent(Graphics g) {
-
-        JLabel test = new JLabel("Test");
 
 
         Graphics2D g2d = (Graphics2D) g;
@@ -43,9 +35,6 @@ public class ScatterPlot extends JPanel {
         Ellipse2D.Double m = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
         Ellipse2D.Double a = new Ellipse2D.Double(ax - r, ay - r, 2 * r, 2 * r);
         Ellipse2D.Double b = new Ellipse2D.Double(bx - r, by - r, 2 * r, 2 * r);
-
-
-
 
         g2d.fill(m);
         g2d.fill(a);
