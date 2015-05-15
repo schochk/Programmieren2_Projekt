@@ -20,18 +20,6 @@ public class ScatterPlot extends JPanel {
 
     }
 
-        //JPanel panel;
-
-        /*public KreisZeichnen(){
-            panel = new KreisPanel();
-            add(panel);
-
-            this.setSize(300, 300);
-            //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setVisible(true);
-        }*/
-
-
     public void paintComponent(Graphics g) {
 
         JLabel test = new JLabel("Test");
@@ -41,17 +29,27 @@ public class ScatterPlot extends JPanel {
         g2d.setColor(Color.ORANGE);
         g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
         g2d.setColor(Color.BLACK);
-        int mx = (getWidth()/2);
-        int my = (getHeight()/2);
-        int r = 5;
-        Ellipse2D.Double kreis = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
+        int mx = ((getWidth()/100)*50);
+        int my = ((getHeight()/100)*25);
+        int ax = (getWidth()/100)*25;
+        int ay = (getHeight()/100)*75;
+        int bx = ((getWidth()/100)*75);
+        int by = ((getHeight()/100)*75);
 
-        g2d.fill(kreis);
+        int r = 5;
+        Ellipse2D.Double m = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
+        Ellipse2D.Double a = new Ellipse2D.Double(ax - r, ay - r, 2 * r, 2 * r);
+        Ellipse2D.Double b = new Ellipse2D.Double(bx - r, by - r, 2 * r, 2 * r);
+
+
+
+
+        g2d.fill(m);
+        g2d.fill(a);
+        g2d.fill(b);
 
 
     }
-
-
 
 }
 

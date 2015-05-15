@@ -13,8 +13,17 @@ public class MenuPanel extends JPanel {
 
     public void menuComponent() {
 
+        /*Graphics2D m = (Graphics2D) k;
+        m.setColor(Color.YELLOW);
+        m.fillRect(0,0, this.getWidth(), this.getHeight());
+        */
+
+
+
         JPanel panelMenu = new JPanel();
         panelMenu.setBackground(Color.YELLOW);
+
+
 
         JButton data = new JButton("Datei");
         panelMenu.add(data);

@@ -29,26 +29,17 @@ public class UserInterface extends JPanel {
         panelPlot.setLayout(new GridLayout(2, 1));
         panelMain.add(panelPlot, BorderLayout.CENTER);
 
-        //Point p = new Point(); p.setLocation(20,20);
 
 
-        ScatterPlot scatterPlot = new ScatterPlot();
+        ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
         scatterPlot.scatterPlotComponent();
         panelPlot.add(scatterPlot);
-
-        /*JPanel scatterPlot = new JPanel();
-        scatterPlot.setBackground(Color.BLUE);
-        panelPlot.add(scatterPlot);
-
-*/
-
-        //scatterPlot.add(Point); punkte einfügen
-
 
 
         JPanel panelHistogram = new JPanel();
         panelHistogram.setLayout(new GridLayout(1, 2));
         panelPlot.add(panelHistogram);
+
 
         panelDrawingLeft(panelHistogram); //Histogramm Links
 
