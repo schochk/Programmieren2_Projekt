@@ -12,7 +12,7 @@ public class UserInterface extends JPanel {
     public static void main(String[] args) {
 
         JFrame mainFrame = new JFrame();
-
+        mainFrame.setLayout(new BorderLayout());
 
 
         JPanel panelMain = new JPanel();
@@ -32,15 +32,16 @@ public class UserInterface extends JPanel {
         //Point p = new Point(); p.setLocation(20,20);
 
 
-
-
-        /*ScatterPlot scatterPlot = new ScatterPlot();
+        ScatterPlot scatterPlot = new ScatterPlot();
         scatterPlot.scatterPlotComponent();
         panelPlot.add(scatterPlot);
-*/
-        JPanel scatterPlot = new JPanel();
+
+        /*JPanel scatterPlot = new JPanel();
         scatterPlot.setBackground(Color.BLUE);
         panelPlot.add(scatterPlot);
+
+*/
+
         //scatterPlot.add(Point); punkte einfügen
 
 
