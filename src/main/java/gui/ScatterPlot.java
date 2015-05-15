@@ -9,15 +9,33 @@ import java.awt.geom.Ellipse2D;
  */
 public class ScatterPlot extends JPanel {
 
+    int q=0;
+
+
     public void scatterPlotComponent() {
 
+        JLabel textSP = new JLabel("ScatterPlot");
+        add(textSP);
 
-        JLabel test = new JLabel("ScatterPlot");
-        add(test);
+        JCheckBox lineButton = new JCheckBox("DrawLines");
+        add(lineButton);
+
+        lineButton.setSelected(false);
+
+
+        boolean b = lineButton.isSelected();
+
+        if(b==true){q=1;}
+
+
+
+
+
 
     }
 
     public void paintComponent(Graphics g) {
+
 
 
         Graphics2D g2d = (Graphics2D) g;
@@ -39,6 +57,19 @@ public class ScatterPlot extends JPanel {
         g2d.fill(m);
         g2d.fill(a);
         g2d.fill(b);
+
+
+
+
+        if(q==1) {
+            g.drawLine(mx, my, ax, ay);
+            g.drawLine(ax, ay, bx, by);
+            g.drawLine(bx, by, mx, my);
+        }
+
+        updateUI();
+
+
 
 
     }

@@ -52,8 +52,10 @@ public class MenuPanel extends JPanel {
             }
         });
 
-        JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
+        /*JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
         add(drawingLineCheckBox);
+        */
+
     }
 
 
