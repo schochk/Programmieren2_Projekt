@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
 
 /**
@@ -11,32 +13,26 @@ public class ScatterPlot extends JPanel {
 
     int q=0;
 
-
     public void scatterPlotComponent() {
 
         JLabel textSP = new JLabel("ScatterPlot");
         add(textSP);
 
-        JCheckBox lineButton = new JCheckBox("DrawLines");
+        final JCheckBox lineButton = new JCheckBox("DrawLines");
         add(lineButton);
 
-        lineButton.setSelected(false);
-
-
-        boolean b = lineButton.isSelected();
-
-        if(b==true){q=1;}
-
-
-
-
+        lineButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(lineButton.isSelected()){q=1;}
+                else{q=0;}
+            }
+        });
 
 
     }
 
     public void paintComponent(Graphics g) {
-
-
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.ORANGE);
@@ -58,9 +54,6 @@ public class ScatterPlot extends JPanel {
         g2d.fill(a);
         g2d.fill(b);
 
-
-
-
         if(q==1) {
             g.drawLine(mx, my, ax, ay);
             g.drawLine(ax, ay, bx, by);
@@ -68,9 +61,6 @@ public class ScatterPlot extends JPanel {
         }
 
         updateUI();
-
-
-
 
     }
 
