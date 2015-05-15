@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,35 +18,29 @@ public class MenuPanel extends JPanel {
         */
 
 
-
-        JPanel panelMenu = new JPanel();
-        panelMenu.setBackground(Color.YELLOW);
-
-
-
         JButton data = new JButton("Datei");
-        panelMenu.add(data);
+        add(data);
 
         JLabel variable01 = new JLabel("Variabel X:");
-        panelMenu.add(variable01);
+        add(variable01);
         String variabel01Liste[] = {"a", "b", "c"};
 
         JComboBox variable01Auswahl = new JComboBox(variabel01Liste);
-        panelMenu.add(variable01Auswahl);
+        add(variable01Auswahl);
 
         JLabel variable02 = new JLabel("Variabel Y:");
-        panelMenu.add(variable02);
+        add(variable02);
         String variabel02Liste[] = {"a", "b", "c"};
 
         JComboBox variable02Auswahl = new JComboBox(variabel02Liste);
-        panelMenu.add(variable02Auswahl);
+        add(variable02Auswahl);
 
         JLabel variablePunktgrösse = new JLabel("Variabel Punktgrösse:");
-        panelMenu.add(variablePunktgrösse);
+        add(variablePunktgrösse);
         String variabelpunktListe[] = {"a", "b", "c"};
 
         JComboBox variablePGAuswahl = new JComboBox(variabelpunktListe);
-        panelMenu.add(variablePGAuswahl);
+        add(variablePGAuswahl);
 
         data.addActionListener(new ActionListener() {
             @Override
@@ -58,9 +51,9 @@ public class MenuPanel extends JPanel {
         });
 
         JCheckBox drawingLineCheckBox = new JCheckBox("DrawLines");
-        panelMenu.add(drawingLineCheckBox);
+        add(drawingLineCheckBox);
 
-        add(panelMenu);
+
     }
 
 }

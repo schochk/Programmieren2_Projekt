@@ -18,6 +18,9 @@ public class ScatterPlot extends JPanel {
         scatterPlot.add(test);
         add(scatterPlot);*/
 
+        JLabel test = new JLabel("Test");
+        add(test);
+
     }
 
     public void paintComponent(Graphics g) {
