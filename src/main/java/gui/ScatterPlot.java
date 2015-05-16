@@ -47,8 +47,8 @@ public class ScatterPlot extends JPanel {
         g2d.setColor(Color.BLACK);
         int mx = ((getWidth()/100)*50);
         int my = ((getHeight()/100)*50);
-        int ax = (getWidth()/418)*418;
-        int ay = (getHeight()/500)*200;
+        int ax = (getWidth()/418)*(418-364);
+        int ay = (getHeight()/400)*(400-363);
         /*int bx = ((getWidth()/100)*75);
         int by = ((getHeight()/100)*75);
 */
@@ -68,6 +68,8 @@ public class ScatterPlot extends JPanel {
         }*/
 
         updateUI();
+
+        System.out.println(ay);
 
     }
 
