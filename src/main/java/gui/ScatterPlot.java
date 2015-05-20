@@ -14,8 +14,6 @@ public class ScatterPlot extends JPanel {
     double vxListe[] = {262, 319, 364, 400, 418};
     double vyListe[] = {400, 388, 363, 320, 262};
 
-
-
     int q=0;
 
     public void scatterPlotComponent() {
@@ -34,12 +32,15 @@ public class ScatterPlot extends JPanel {
             }
         });
 
-
-
     }
 
     public void paintComponent(Graphics g) {
 
+        int dx = 418-262;
+        int xi = (getWidth()-1) / dx;
+
+        int dy = 400-262;
+        int yi = (getHeight() - 1) / dy;
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.ORANGE);
@@ -47,11 +48,9 @@ public class ScatterPlot extends JPanel {
         g2d.setColor(Color.BLACK);
         int mx = ((getWidth()/100)*50);
         int my = ((getHeight()/100)*50);
-        int ax = (getWidth()/418)*(418-364);
-        int ay = (getHeight()/400)*(400-363);
-        /*int bx = ((getWidth()/100)*75);
-        int by = ((getHeight()/100)*75);
-*/
+        int ax = xi * (364 - 262); //(getW-1)/delta * (xn-xmin)
+        int ay = getHeight()-(yi * (262 - 262)); //getH-((getH-1)/delta * (yn-ymin))
+
         int r = 5;
         Ellipse2D.Double m = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
         Ellipse2D.Double a = new Ellipse2D.Double(ax - r, ay - r, 2 * r, 2 * r);
@@ -59,7 +58,7 @@ public class ScatterPlot extends JPanel {
 
         g2d.fill(m);
         g2d.fill(a);
-        //g2d.fill(b);
+
 
         /*if(q==1) {
             g.drawLine(mx, my, ax, ay);
@@ -69,10 +68,7 @@ public class ScatterPlot extends JPanel {
 
         updateUI();
 
-        System.out.println(ay);
-
     }
-
 
 }
 
