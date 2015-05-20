@@ -1,6 +1,6 @@
-package mirij2.loader;
+package ch.n1b.mirij2.loader;
 
-import mirij2.model.SeriesFile;
+import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

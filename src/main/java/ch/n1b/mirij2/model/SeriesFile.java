@@ -1,4 +1,4 @@
-package mirij2.model;
+package ch.n1b.mirij2.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,6 @@ public class SeriesFile {
     }
 
     public void add(Serie serie) {
-
         seriesList.add(serie);
     }
 

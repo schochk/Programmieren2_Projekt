@@ -1,8 +1,7 @@
-package mirij2.loader;
+package ch.n1b.mirij2.loader;
 
-
-import mirij2.model.Serie;
-import mirij2.model.SeriesFile;
+import ch.n1b.mirij2.model.Serie;
+import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,8 +21,8 @@ public class ColumnFile implements SeriesFileLoader {
 
         Scanner scanner = new Scanner(new File(fileName));
 
-        List<String> names = parseNames(scanner.nextLine()); //parseName=empty object
-        List<Serie> series = new ArrayList();
+        List<String> names = parseNames(scanner.nextLine());
+        List<Serie> series = new ArrayList<>();
 
 
         for (String name : names) {

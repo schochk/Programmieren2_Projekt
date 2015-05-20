@@ -1,4 +1,4 @@
-package mirij2.model;
+package ch.n1b.mirij2.model;
 /**
  * Created by Mirjam on 13.05.2015.
  */

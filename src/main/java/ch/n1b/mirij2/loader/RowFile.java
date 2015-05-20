@@ -1,7 +1,7 @@
-package mirij2.loader;
+package ch.n1b.mirij2.loader;
 
-import mirij2.model.Serie;
-import mirij2.model.SeriesFile;
+import ch.n1b.mirij2.model.Serie;
+import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,7 +17,7 @@ public class RowFile implements SeriesFileLoader {
     public SeriesFile load(String fileName) throws FileNotFoundException, IOException {
         Scanner scanner = new Scanner(new File(fileName));
         int size = Integer.parseInt(scanner.nextLine());
-        List<String> names = new ArrayList();
+        List<String> names = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             names.add(scanner.nextLine());
@@ -37,7 +37,7 @@ public class RowFile implements SeriesFileLoader {
     @Deprecated
     private List<Double> parseRow(String row, String seperator) {
         String[] values = row.split(seperator);
-        List<Double> valuesList = new LinkedList();
+        List<Double> valuesList = new LinkedList<>();
         for (String value : values) {
             valuesList.add(Double.parseDouble(value));
         }
