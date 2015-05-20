@@ -72,15 +72,12 @@ public class ScatterPlot extends JPanel {
             int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2*r);
 
             g.drawLine(ax, ay, bx, by);
-
         }
-
         }
 
         updateUI();
 
     }
-
 }
 
 

@@ -29,8 +29,6 @@ public class UserInterface extends JPanel {
         panelPlot.setLayout(new GridLayout(2, 1));
         panelMain.add(panelPlot, BorderLayout.CENTER);
 
-
-
         ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
         scatterPlot.scatterPlotComponent();
         panelPlot.add(scatterPlot);
@@ -40,8 +38,12 @@ public class UserInterface extends JPanel {
         panelHistogram.setLayout(new GridLayout(1, 2));
         panelPlot.add(panelHistogram);
 
+        HistogramLeft histogramLeft = new HistogramLeft();
+        histogramLeft.histogramLeftComponent();
+        panelHistogram.add(histogramLeft);
 
-        panelDrawingLeft(panelHistogram); //Histogramm Links
+
+        //panelDrawingLeft(panelHistogram); //Histogramm Links
 
 
         JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
