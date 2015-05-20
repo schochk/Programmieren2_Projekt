@@ -62,9 +62,17 @@ public class ScatterPlot extends JPanel {
 
         if(q==1) {
 
-        for(int i = 0; i < xList.size(); i++){
-            g.drawLine((int)(xd * (xList.get(i)-minvx)-2*r), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r),
-             (int)(xd * (xList.get(i+1)-minvx)-2*r), (int)(getHeight()-(yd*(yList.get(i+1)-minvy))-2*r));
+        for(int i = 0; i < xList.size()-1; i++){
+
+            int j = i+1;
+
+            int ax = (int)(xd * (xList.get(i)-minvx)-2*r);
+            int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r);
+
+            int bx = (int)(xd * (xList.get(j)-minvx)-2*r);
+            int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2*r);
+
+            g.drawLine(ax, ay, bx, by);
 
         }
             //g.drawLine(mx, my, ax, ay);
