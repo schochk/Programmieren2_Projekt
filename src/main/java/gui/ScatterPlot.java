@@ -47,10 +47,9 @@ public class ScatterPlot extends JPanel {
         double xd = (getWidth() - 1) / (maxvx-minvx);
         double yd = (getHeight() - 10) / (maxvy-minvy);
 
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.ORANGE);
-        g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
-        g2d.setColor(Color.BLACK);
+        g.setColor(Color.ORANGE);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.setColor(Color.BLACK);
 
         int r = 5;
 
