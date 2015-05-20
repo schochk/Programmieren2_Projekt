@@ -42,14 +42,14 @@ public class UserInterface extends JPanel {
         histogramLeft.histogramLeftComponent();
         panelHistogram.add(histogramLeft);
 
+        HistogramRight histogramRight = new HistogramRight();
+        histogramRight.histogramRightComponent();
+        panelHistogram.add(histogramRight);
 
-        //panelDrawingLeft(panelHistogram); //Histogramm Links
-
-
-        JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
+        /*JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
         panelHistogramRight.setBackground(Color.GREEN);
         panelHistogram.add(panelHistogramRight);
-
+*/
 
         mainFrame.add(panelMain);
 
@@ -63,14 +63,6 @@ public class UserInterface extends JPanel {
         mainFrame.setVisible(true);
 
     }
-
-    private static void panelDrawingLeft(JPanel panelBalken) {
-        JPanel panelHistogramLeft = new JPanel();
-        panelHistogramLeft.setBackground(Color.CYAN);
-        panelBalken.add(panelHistogramLeft);
-    }
-
-
 
 }
 
