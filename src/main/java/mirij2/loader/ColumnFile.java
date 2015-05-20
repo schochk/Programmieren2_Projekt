@@ -22,7 +22,7 @@ public class ColumnFile implements SeriesFileLoader {
 
         Scanner scanner = new Scanner(new File(fileName));
 
-        List<String> names = parseNames(scanner.nextLine());
+        List<String> names = parseNames(scanner.nextLine()); //parseName=empty object
         List<Serie> series = new ArrayList();
 
 

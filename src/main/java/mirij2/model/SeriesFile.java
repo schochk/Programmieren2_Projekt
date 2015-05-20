@@ -19,6 +19,7 @@ public class SeriesFile {
     }
 
     public void add(Serie serie) {
+
         seriesList.add(serie);
     }
 
