@@ -55,10 +55,10 @@ public class HistogramLeft extends JPanel {
             }
         }
 
-        int h=a+b+c+d+e+f;
+        double h=a+b+c+d+e+f;
 
-        int barHeight = getHeight()/h;
-        int barWidth = getWidth() / 6;
+        int barHeight = (int)(getHeight()/h);
+        int barWidth = (int)(getWidth() / 6.0);
 
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0,0,barWidth, getHeight()-(barHeight*a));
