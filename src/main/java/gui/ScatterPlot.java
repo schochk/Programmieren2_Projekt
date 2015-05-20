@@ -51,7 +51,6 @@ public class ScatterPlot extends JPanel {
         int ax = xi * (364 - 262); //(getW-1)/delta * (xn-xmin)
         int ay = getHeight()-(yi * (262 - 262)); //getH-((getH-1)/delta * (yn-ymin))
 
-
         int r = 5;
         Ellipse2D.Double m = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
         Ellipse2D.Double a = new Ellipse2D.Double(ax - r, ay - r, 2 * r, 2 * r);
