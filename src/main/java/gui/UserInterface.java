@@ -51,8 +51,8 @@ public class UserInterface extends JPanel {
 
         mainFrame.add(panelMain);
 
-        final int FRAME_WIDTH = 800;
-        final int FRAME_HEIGHT = 900;
+        final int FRAME_WIDTH = 600;
+        final int FRAME_HEIGHT = 600;
         mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         mainFrame.setTitle("Programmieren 2 Projekt");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
