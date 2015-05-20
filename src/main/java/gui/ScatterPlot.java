@@ -26,9 +26,6 @@ public class ScatterPlot extends JPanel {
 
     public void scatterPlotComponent() {
 
-        System.out.println(maxvx);
-        System.out.println(minvx);
-
         JLabel textSP = new JLabel("ScatterPlot");
         add(textSP);
 
@@ -54,15 +51,8 @@ public class ScatterPlot extends JPanel {
         g2d.setColor(Color.ORANGE);
         g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
         g2d.setColor(Color.BLACK);
-        int mx = (int)((getWidth()/100.0)*50.0);
-        int my = (int) ((getHeight()/100.0)*50.0);
-        //int ax = (int) (xd * (364.0 - minvx)); //(getW-1)/delta * (xn-xmin)
-        //int ay = (int) (getHeight()-(yd * (400.0 - minvy))); //getH-((getH-1)/delta * (yn-ymin))
 
         int r = 5;
-
-        g.fillOval(mx-r, my-r, 2*r, 2*r);
-
 
         for(int i = 0; i < xList.size(); i++){
 
