@@ -51,7 +51,7 @@ public class UserInterface extends JPanel {
 
         mainFrame.add(panelMain);
 
-        final int FRAME_WIDTH = 600;
+        final int FRAME_WIDTH = 700;
         final int FRAME_HEIGHT = 600;
         mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         mainFrame.setTitle("Programmieren 2 Projekt");
