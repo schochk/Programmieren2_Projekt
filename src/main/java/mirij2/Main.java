@@ -21,7 +21,7 @@ public class Main {
 
             // Decide which concrete loader to use.
             if (inputLine.endsWith("txt")) {
-                loader = new ColumnFile(); //tab-delimited
+                loader = new ColumnFile();
             } else if (inputLine.endsWith("lin")) {
                 loader = new RowFile();
             } else {
