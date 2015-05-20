@@ -61,7 +61,6 @@ public class ScatterPlot extends JPanel {
         }
 
         if(q==1) {
-
         for(int i = 0; i < xList.size()-1; i++){
 
             int j = i+1;
@@ -75,9 +74,7 @@ public class ScatterPlot extends JPanel {
             g.drawLine(ax, ay, bx, by);
 
         }
-            //g.drawLine(mx, my, ax, ay);
-          //  g.drawLine(ax, ay, bx, by);
-            //g.drawLine(bx, by, mx, my);
+
         }
 
         updateUI();
