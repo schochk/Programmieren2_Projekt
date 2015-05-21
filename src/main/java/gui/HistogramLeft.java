@@ -60,13 +60,21 @@ public class HistogramLeft extends JPanel {
         int barHeight = (int)(getHeight()/h);
         int barWidth = (int)(getWidth() / 6.0);
 
-        g.setColor(Color.ORANGE);
+        g.setColor(Color.YELLOW);
         g.fillRect(0,getHeight()-(barHeight*a),barWidth, getHeight());
         g.fillRect(barWidth,getHeight()-barHeight*b,barWidth, getHeight());
         g.fillRect(barWidth*2,getHeight()-(barHeight*c),barWidth, getHeight());
         g.fillRect(barWidth*3,getHeight()-(barHeight*d),barWidth, getHeight());
         g.fillRect(barWidth*4,getHeight()-(barHeight*e),barWidth, getHeight());
         g.fillRect(barWidth*5,getHeight()-(barHeight*f),barWidth, getHeight());
+
+        g.setColor(Color.ORANGE);
+        g.drawRect(0, getHeight() - (barHeight * a), barWidth, getHeight());
+        g.drawRect(barWidth,getHeight()-barHeight*b,barWidth, getHeight());
+        g.drawRect(barWidth*2,getHeight()-(barHeight*c),barWidth, getHeight());
+        g.drawRect(barWidth*3,getHeight()-(barHeight*d),barWidth, getHeight());
+        g.drawRect(barWidth*4,getHeight()-(barHeight*e),barWidth, getHeight());
+        g.drawRect(barWidth*5,getHeight()-(barHeight*f),barWidth, getHeight());
 
         updateUI();
 
