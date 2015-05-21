@@ -37,7 +37,7 @@ public class Main {
                 }
 
                 if (seriesFile != null) {
-                    System.out.println(seriesFile.getSerie("Variable 1").get(1));
+                    System.out.println(seriesFile.getNames());
                 } else {
                     System.err.println("Unable to read the values.");
                 }
