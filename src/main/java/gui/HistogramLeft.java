@@ -30,8 +30,8 @@ public class HistogramLeft extends JPanel {
         int e = 0;
         int f = 0;
 
-        g.setColor(Color.MAGENTA);
-        g.fillRect(0,0, this.getWidth(), this.getHeight());
+        //g.setColor(Color.LIGHT_GRAY);
+        //g.fillRect(0,0, this.getWidth(), this.getHeight());
 
         for(int i = 0; i<xList.size(); i++){
 
@@ -60,13 +60,21 @@ public class HistogramLeft extends JPanel {
         int barHeight = (int)(getHeight()/h);
         int barWidth = (int)(getWidth() / 6.0);
 
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0,barWidth, getHeight()-(barHeight*a));
-        g.fillRect(barWidth,0,barWidth, getHeight()-barHeight*b);
-        g.fillRect(barWidth*2,0,barWidth, getHeight()-(barHeight*c));
-        g.fillRect(barWidth*3,0,barWidth, getHeight()-(barHeight*d));
-        g.fillRect(barWidth*4,0,barWidth, getHeight()-(barHeight*e));
-        g.fillRect(barWidth*5,0,barWidth, getHeight()-(barHeight*f));
+        g.setColor(Color.YELLOW);
+        g.fillRect(0,getHeight()-(barHeight*a),(int)(barWidth*1.0), getHeight());
+        g.fillRect((int)(barWidth*1.0),getHeight()-barHeight*b,(int)(barWidth*1.0), getHeight());
+        g.fillRect((int)(barWidth*2.0),getHeight()-(barHeight*c),(int)(barWidth*1.0), getHeight());
+        g.fillRect((int)(barWidth*3.0),getHeight()-(barHeight*d),(int)(barWidth*1.0), getHeight());
+        g.fillRect((int)(barWidth*4.0),getHeight()-(barHeight*e),(int)(barWidth*1.0), getHeight());
+        g.fillRect((int)(barWidth*5.0),getHeight()-(barHeight*f),(int)(barWidth*1.0), getHeight());
+
+        g.setColor(Color.ORANGE);
+        g.drawRect(0, getHeight() - (barHeight * a), barWidth, getHeight());
+        g.drawRect(barWidth, getHeight() - barHeight * b, barWidth, getHeight());
+        g.drawRect(barWidth * 2, getHeight() - (barHeight * c), barWidth, getHeight());
+        g.drawRect(barWidth * 3, getHeight() - (barHeight * d), barWidth, getHeight());
+        g.drawRect(barWidth * 4, getHeight() - (barHeight * e), barWidth, getHeight());
+        g.drawRect(barWidth * 5, getHeight() - (barHeight * f), barWidth, getHeight());
 
         updateUI();
 
