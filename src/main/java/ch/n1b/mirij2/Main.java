@@ -1,9 +1,9 @@
-package mirij2;
+package ch.n1b.mirij2;
 
-import mirij2.loader.ColumnFile;
-import mirij2.loader.RowFile;
-import mirij2.loader.SeriesFileLoader;
-import mirij2.model.SeriesFile;
+import ch.n1b.mirij2.loader.ColumnFile;
+import ch.n1b.mirij2.loader.RowFile;
+import ch.n1b.mirij2.loader.SeriesFileLoader;
+import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -37,7 +37,7 @@ public class Main {
                 }
 
                 if (seriesFile != null) {
-                    System.out.println(seriesFile.getNames());
+                    System.out.println(seriesFile.getSerie("Variable 1").get(1));
                 } else {
                     System.err.println("Unable to read the values.");
                 }
@@ -47,4 +47,6 @@ public class Main {
         }
 
     }
+
+
 }
