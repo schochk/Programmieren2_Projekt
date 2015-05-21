@@ -46,11 +46,6 @@ public class UserInterface extends JPanel {
         histogramRight.histogramRightComponent();
         panelHistogram.add(histogramRight);
 
-        /*JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
-        panelHistogramRight.setBackground(Color.GREEN);
-        panelHistogram.add(panelHistogramRight);
-*/
-
         mainFrame.add(panelMain);
 
         final int FRAME_WIDTH = 700;
