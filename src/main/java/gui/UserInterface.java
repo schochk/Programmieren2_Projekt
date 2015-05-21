@@ -29,8 +29,6 @@ public class UserInterface extends JPanel {
         panelPlot.setLayout(new GridLayout(2, 1));
         panelMain.add(panelPlot, BorderLayout.CENTER);
 
-
-
         ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
         scatterPlot.scatterPlotComponent();
         panelPlot.add(scatterPlot);
@@ -40,19 +38,23 @@ public class UserInterface extends JPanel {
         panelHistogram.setLayout(new GridLayout(1, 2));
         panelPlot.add(panelHistogram);
 
+        HistogramLeft histogramLeft = new HistogramLeft();
+        histogramLeft.histogramLeftComponent();
+        panelHistogram.add(histogramLeft);
 
-        panelDrawingLeft(panelHistogram); //Histogramm Links
+        HistogramRight histogramRight = new HistogramRight();
+        histogramRight.histogramRightComponent();
+        panelHistogram.add(histogramRight);
 
-
-        JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
+        /*JPanel panelHistogramRight = new JPanel(); //Histogramm Rechts
         panelHistogramRight.setBackground(Color.GREEN);
         panelHistogram.add(panelHistogramRight);
-
+*/
 
         mainFrame.add(panelMain);
 
-        final int FRAME_WIDTH = 800;
-        final int FRAME_HEIGHT = 900;
+        final int FRAME_WIDTH = 700;
+        final int FRAME_HEIGHT = 600;
         mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         mainFrame.setTitle("Programmieren 2 Projekt");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,14 +63,6 @@ public class UserInterface extends JPanel {
         mainFrame.setVisible(true);
 
     }
-
-    private static void panelDrawingLeft(JPanel panelBalken) {
-        JPanel panelHistogramLeft = new JPanel();
-        panelHistogramLeft.setBackground(Color.CYAN);
-        panelBalken.add(panelHistogramLeft);
-    }
-
-
 
 }
 

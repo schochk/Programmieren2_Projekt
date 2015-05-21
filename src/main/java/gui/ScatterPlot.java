@@ -4,15 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Ellipse2D;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by schoch on 14.05.15.
  */
 public class ScatterPlot extends JPanel {
 
-    double vxListe[] = {262, 319, 364, 400, 418};
-    double vyListe[] = {400, 388, 363, 320, 262};
+
+    List<Integer> xList = Arrays.asList(2620,3190,3640,4000,4180,4150,3860,3520,3080,2630,2050,1610,1300,1090,1130,1340,1680,2140,1980,2000,2250,2220,2960,2930,3170,3140,3500,3280,2890,2500,2180,1860);
+    double maxvx = Collections.max(xList);
+    double minvx = Collections.min(xList);
+
+    List<Integer> yList = Arrays.asList(4000,3880,3620,3200,2620,2030,1470,1170,960,880,1010,1280,1680,2200,2730,3260,3660,3910,2980,2780,2760,3010,3050,2860,3070,2860,2120,1780,1630,1610,1710,2020);
+    double maxvy = Collections.max(yList);
+    double minvy = Collections.min(yList);
 
     int q=0;
 
@@ -36,40 +44,39 @@ public class ScatterPlot extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        int dx = 418-262;
-        int xi = (getWidth()-1) / dx;
+        double xd = (getWidth() - 1) / (maxvx-minvx);
+        double yd = (getHeight() - 10) / (maxvy-minvy);
 
-        int dy = 400-262;
-        int yi = (getHeight() - 1) / dy;
-
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.ORANGE);
-        g2d.fillRect(0, 0, this.getWidth(), this.getHeight());
-        g2d.setColor(Color.BLACK);
-        int mx = ((getWidth()/100)*50);
-        int my = ((getHeight()/100)*50);
-        int ax = xi * (364 - 262); //(getW-1)/delta * (xn-xmin)
-        int ay = getHeight()-(yi * (262 - 262)); //getH-((getH-1)/delta * (yn-ymin))
+        g.setColor(Color.ORANGE);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.setColor(Color.BLACK);
 
         int r = 5;
-        Ellipse2D.Double m = new Ellipse2D.Double(mx - r, my - r, 2 * r, 2 * r);
-        Ellipse2D.Double a = new Ellipse2D.Double(ax - r, ay - r, 2 * r, 2 * r);
-        //Ellipse2D.Double b = new Ellipse2D.Double(bx - r, by - r, 2 * r, 2 * r);
 
-        g2d.fill(m);
-        g2d.fill(a);
+        for(int i = 0; i < xList.size(); i++){
 
+            g.fillOval((int)(xd * (xList.get(i)-minvx)-2*r), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r),2*r,2*r);
 
-        /*if(q==1) {
-            g.drawLine(mx, my, ax, ay);
-          //  g.drawLine(ax, ay, bx, by);
-            //g.drawLine(bx, by, mx, my);
-        }*/
+        }
+
+        if(q==1) {
+        for(int i = 0; i < xList.size()-1; i++){
+
+            int j = i+1;
+
+            int ax = (int)(xd * (xList.get(i)-minvx)-2*r);
+            int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r);
+
+            int bx = (int)(xd * (xList.get(j)-minvx)-2*r);
+            int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2*r);
+
+            g.drawLine(ax, ay, bx, by);
+        }
+        }
 
         updateUI();
 
     }
-
 }
 
 
