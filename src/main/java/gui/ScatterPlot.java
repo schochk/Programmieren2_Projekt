@@ -44,18 +44,19 @@ public class ScatterPlot extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        double xd = (getWidth() - 1) / (maxvx-minvx);
-        double yd = (getHeight() - 10) / (maxvy-minvy);
+        int r = 5;
+
+        double xd = (getWidth() - 2*r) / (maxvx-minvx);
+        double yd = (getHeight() - 2*r) / (maxvy-minvy);
 
         g.setColor(Color.ORANGE);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.BLACK);
 
-        int r = 5;
 
         for(int i = 0; i < xList.size(); i++){
 
-            g.fillOval((int)(xd * (xList.get(i)-minvx)-2*r), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r),2*r,2*r);
+            g.fillOval((int)((2 * r) + (xd * (xList.get(i)-minvx)-2*r)), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r),2*r,2*r);
 
         }
 
@@ -64,14 +65,14 @@ public class ScatterPlot extends JPanel {
 
             int j = i+1;
 
-            int ax = (int)(xd * (xList.get(i)-minvx)-2*r);
+            int ax = (int)((2 * r) + (xd * (xList.get(i)-minvx)-2*r));
             int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r);
 
-            int bx = (int)(xd * (xList.get(j)-minvx)-2*r);
+            int bx = (int)((2 * r) + (xd * (xList.get(j)-minvx)-2*r));
             int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2*r);
 
             g.drawLine(ax, ay, bx, by);
-        }
+            }
         }
 
         updateUI();
