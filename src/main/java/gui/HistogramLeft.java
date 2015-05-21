@@ -30,8 +30,8 @@ public class HistogramLeft extends JPanel {
         int e = 0;
         int f = 0;
 
-        g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0, this.getWidth(), this.getHeight());
+        //g.setColor(Color.LIGHT_GRAY);
+        //g.fillRect(0,0, this.getWidth(), this.getHeight());
 
         for(int i = 0; i<xList.size(); i++){
 

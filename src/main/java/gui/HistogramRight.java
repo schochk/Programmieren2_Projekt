@@ -60,12 +60,12 @@ public class HistogramRight extends JPanel {
         int barWidth = getWidth() / 6;
 
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0,barWidth, getHeight()-(barHeight*a));
-        g.fillRect(barWidth,0,barWidth, getHeight()-barHeight*b);
-        g.fillRect(barWidth*2,0,barWidth, getHeight()-(barHeight*c));
-        g.fillRect(barWidth*3,0,barWidth, getHeight()-(barHeight*d));
-        g.fillRect(barWidth*4,0,barWidth, getHeight()-(barHeight*e));
-        g.fillRect(barWidth*5,0,barWidth, getHeight()-(barHeight*f));
+        g.fillRect(0,getHeight()-(barHeight*a),barWidth, getHeight());
+        g.fillRect(barWidth,getHeight()-barHeight*b,barWidth, getHeight());
+        g.fillRect(barWidth*2,getHeight()-(barHeight*c),barWidth, getHeight());
+        g.fillRect(barWidth*3,getHeight()-(barHeight*d),barWidth, getHeight());
+        g.fillRect(barWidth*4,getHeight()-(barHeight*e),barWidth, getHeight());
+        g.fillRect(barWidth*5,getHeight()-(barHeight*f),barWidth, getHeight());
 
         updateUI();
 
