@@ -62,7 +62,6 @@ public class ScatterPlot extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        //int r = 5;
 
         double xd = (getWidth() - 2*r) / (maxvx-minvx);
         double yd = (getHeight() - 2*r) / (maxvy-minvy);
