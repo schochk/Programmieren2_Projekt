@@ -2,8 +2,6 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -21,18 +19,24 @@ public class ScatterPlot extends JPanel {
     double maxvy = Collections.max(yList);
     double minvy = Collections.min(yList);
 
-    int q=0;
+    //int q=0;
 
     int r = 5;
 
 
+
+
     public void scatterPlotComponent() {
+
+
+
+
 
         /*JLabel textSP = new JLabel("ScatterPlot");
         spoptionPanel.add(textSP);
         */
 
-        final JCheckBox lineButton = new JCheckBox("DrawLines");
+        /*final JCheckBox lineButton = new JCheckBox("DrawLines");
         add(lineButton);
         lineButton.addActionListener(new ActionListener() {
             @Override
@@ -54,7 +58,7 @@ public class ScatterPlot extends JPanel {
             if (!pointSize.getValueIsAdjusting()) {
                 r = pointSize.getValue();
             }
-        });
+        });*/
 
     }
 
