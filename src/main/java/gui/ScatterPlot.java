@@ -1,8 +1,6 @@
 package gui;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +12,6 @@ import java.util.List;
  * Created by schoch on 14.05.15.
  */
 public class ScatterPlot extends JPanel {
-
 
     List<Integer> xList = Arrays.asList(2620,3190,3640,4000,4180,4150,3860,3520,3080,2630,2050,1610,1300,1090,1130,1340,1680,2140,1980,2000,2250,2220,2960,2930,3170,3140,3500,3280,2890,2500,2180,1860);
     double maxvx = Collections.max(xList);
@@ -28,15 +25,15 @@ public class ScatterPlot extends JPanel {
 
     int r = 5;
 
+
     public void scatterPlotComponent() {
 
-
-        JLabel textSP = new JLabel("ScatterPlot");
-        add(textSP);
+        /*JLabel textSP = new JLabel("ScatterPlot");
+        spoptionPanel.add(textSP);
+        */
 
         final JCheckBox lineButton = new JCheckBox("DrawLines");
         add(lineButton);
-
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,18 +42,19 @@ public class ScatterPlot extends JPanel {
             }
         });
 
-        JSlider pointSize = new JSlider (2, 30, 5);
-
-        pointSize.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                if (!pointSize.getValueIsAdjusting()) {
-                    r = pointSize.getValue();
-                }
-            }
-        });
+        JSlider pointSize = new JSlider (1, 31, 5);
+        pointSize.setMajorTickSpacing(10);
+        pointSize.setMinorTickSpacing(1);
+        pointSize.setPaintTicks(true);
+        pointSize.setPaintLabels(true);
 
         add(pointSize);
+
+        pointSize.addChangeListener(e -> {
+            if (!pointSize.getValueIsAdjusting()) {
+                r = pointSize.getValue();
+            }
+        });
 
     }
 
@@ -95,6 +93,8 @@ public class ScatterPlot extends JPanel {
         updateUI();
 
     }
+
+
 }
 
 
