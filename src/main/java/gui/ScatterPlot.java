@@ -1,6 +1,8 @@
 package gui;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +26,10 @@ public class ScatterPlot extends JPanel {
 
     int q=0;
 
+    int r = 5;
+
     public void scatterPlotComponent() {
+
 
         JLabel textSP = new JLabel("ScatterPlot");
         add(textSP);
@@ -40,11 +45,24 @@ public class ScatterPlot extends JPanel {
             }
         });
 
+        JSlider pointSize = new JSlider (2, 30, 5);
+
+        pointSize.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if (!pointSize.getValueIsAdjusting()) {
+                    r = pointSize.getValue();
+                }
+            }
+        });
+
+        add(pointSize);
+
     }
 
     public void paintComponent(Graphics g) {
 
-        int r = 5;
+        //int r = 5;
 
         double xd = (getWidth() - 2*r) / (maxvx-minvx);
         double yd = (getHeight() - 2*r) / (maxvy-minvy);
