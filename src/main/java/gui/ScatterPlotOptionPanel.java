@@ -8,14 +8,9 @@ import java.awt.event.ActionListener;
 /**
  * Created by schoch on 25.05.15.
  */
-public class ScatterPlotOption extends JPanel{
+public class ScatterPlotOptionPanel extends JPanel{
 
-    int q = 0;
-    int r = 5;
-
-    public void optionComponent(){
-
-
+    public ScatterPlotOptionPanel(ScatterPlotPanel scatterPlotPanel){
 
         setBackground(Color.PINK);
 
@@ -24,8 +19,8 @@ public class ScatterPlotOption extends JPanel{
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){q=1;}
-                else{q=0;}
+                if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
+                else{scatterPlotPanel.drawLine(false);}
             }
         });
 
@@ -39,7 +34,7 @@ public class ScatterPlotOption extends JPanel{
 
         pointSize.addChangeListener(e -> {
             if (!pointSize.getValueIsAdjusting()) {
-                r = pointSize.getValue();
+                scatterPlotPanel.adjustRadius(pointSize.getValue());
             }
         });
 

@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class Main extends JPanel {
 
     public static void main(String[] args) {
+
         Scanner inputScanner = new Scanner(System.in);
         while (true) {
             // Read the file name
