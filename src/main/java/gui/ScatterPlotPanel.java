@@ -11,9 +11,9 @@ import java.util.List;
 /**
  * Created by schoch on 14.05.15.
  */
-public class ScatterPlot extends JPanel {
+public class ScatterPlotPanel extends JPanel {
 
-    List<Integer> xList = Arrays.asList(2620,3190,3640,4000,4180,4150,3860,3520,3080,2630,2050,1610,1300,1090,1130,1340,1680,2140,1980,2000,2250,2220,2960,2930,3170,3140,3500,3280,2890,2500,2180,1860);
+    List<Integer> xList = Arrays.asList(1,2,3,2620,3190,3640,4000,4180,4150,3860,3520,3080,2630,2050,1610,1300,1090,1130,1340,1680,2140,1980,2000,2250,2220,2960,2930,3170,3140,3500,3280,2890,2500,2180,1860);
     double maxvx = Collections.max(xList);
     double minvx = Collections.min(xList);
 
@@ -21,18 +21,15 @@ public class ScatterPlot extends JPanel {
     double maxvy = Collections.max(yList);
     double minvy = Collections.min(yList);
 
-    int q=0;
+    boolean q=false;
 
     int r = 5;
 
     //private int q;
 
-    public void scatterPlotComponent() {
+    public ScatterPlotPanel() {
 
         //this.q = q;
-
-
-
 
         /*JLabel textSP = new JLabel("ScatterPlot");
         spoptionPanel.add(textSP);
@@ -43,8 +40,8 @@ public class ScatterPlot extends JPanel {
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){q=1;}
-                else{q=0;}
+                if(lineButton.isSelected()){q=true;}
+                else{q=false;}
             }
         });
 
@@ -81,7 +78,7 @@ public class ScatterPlot extends JPanel {
 
         }
 
-        if(q==1) {
+        if(q==true) {
         for(int i = 0; i < xList.size()-1; i++){
 
             int j = i+1;

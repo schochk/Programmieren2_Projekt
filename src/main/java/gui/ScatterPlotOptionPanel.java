@@ -8,14 +8,12 @@ import java.awt.event.ActionListener;
 /**
  * Created by schoch on 25.05.15.
  */
-public class ScatterPlotOption extends JPanel{
+public class ScatterPlotOptionPanel extends JPanel{
 
-    int q = 0;
+    boolean q = false;
     int r = 5;
 
-    public void optionComponent(){
-
-
+    public ScatterPlotOptionPanel(){
 
         setBackground(Color.PINK);
 
@@ -24,8 +22,8 @@ public class ScatterPlotOption extends JPanel{
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){q=1;}
-                else{q=0;}
+                if(lineButton.isSelected()){q=true;}
+                else{q=false;}
             }
         });
 

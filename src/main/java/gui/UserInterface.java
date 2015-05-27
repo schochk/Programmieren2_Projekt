@@ -31,13 +31,11 @@ public class UserInterface extends JPanel {
         panelScatterPlot.setLayout(new BorderLayout());
         panelPlot.add(panelScatterPlot);
 
-        ScatterPlotOption scatterPlotOption = new ScatterPlotOption();
-        scatterPlotOption.optionComponent();
-        panelScatterPlot.add(scatterPlotOption, BorderLayout.NORTH);
+        ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
+        panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-        ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
-        scatterPlot.scatterPlotComponent();
-        panelScatterPlot.add(scatterPlot, BorderLayout.CENTER);
+        ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel();
+        panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
 
         JPanel panelHistogram = new JPanel();
         panelHistogram.setLayout(new GridLayout(1, 2));
