@@ -1,9 +1,10 @@
 package gui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JCheckBox;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import java.awt.BorderLayout;
+import java.awt.Color;
 
 /**
  * Created by schoch on 25.05.15.
@@ -16,12 +17,9 @@ public class ScatterPlotOptionPanel extends JPanel{
 
         final JCheckBox lineButton = new JCheckBox("DrawLines");
         add(lineButton, BorderLayout.CENTER);
-        lineButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
-                else{scatterPlotPanel.drawLine(false);}
-            }
+        lineButton.addActionListener(e -> {
+            if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
+            else{scatterPlotPanel.drawLine(false);}
         });
 
         JSlider pointSize = new JSlider (1, 31, 5);
