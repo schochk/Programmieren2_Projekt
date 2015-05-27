@@ -19,12 +19,12 @@ public class ScatterPlotPanel extends JPanel {
     double maxvy = Collections.max(yList);
     double minvy = Collections.min(yList);
 
-    boolean q=false;
+    boolean drawLines =false;
 
     int radius = 5;
 
     public void drawLine (boolean q){
-        this.q = q;
+        this.drawLines = q;
         repaint();
     }
 
@@ -49,11 +49,9 @@ public class ScatterPlotPanel extends JPanel {
             g.fillOval((int)((2 * radius) + (xd * (xList.get(i)-minvx)-2* radius)), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2* radius),2* radius,2* radius);
         }
 
-        if(q) {
+        if(drawLines) {
         for(int i = 0; i < xList.size()-1; i++){
-
             int j = i+1;
-
             int ax = (int)((2 * radius) + (xd * (xList.get(i)-minvx)-2* radius)+ radius);
             int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2* radius + radius);
 
