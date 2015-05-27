@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import ch.n1b.mirij2.*;
+import ch.n1b.mirij2.Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +25,7 @@ public class MenuPanel extends JPanel {
 
         JLabel variable01 = new JLabel("Variabel X:");
         add(variable01);
-        String variabel01Liste[] = {getName()};
+        String variabel01Liste[] = {"a,b, c"};
 
         JComboBox variable01Auswahl = new JComboBox(variabel01Liste);
         add(variable01Auswahl);
@@ -34,21 +36,6 @@ public class MenuPanel extends JPanel {
 
         JComboBox variable02Auswahl = new JComboBox(variabel02Liste);
         add(variable02Auswahl);
-
-        /*JLabel variablePunktgrösse = new JLabel("Variabel Punktgrösse:");
-        add(variablePunktgrösse);
-        String variabelpunktListe[] = {"a", "b", "c"};
-
-        JComboBox variablePGAuswahl = new JComboBox(variabelpunktListe);
-        add(variablePGAuswahl);
-        */
-       /* data.addActionListener(new ActionListener() {       //File auswählen
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();
-                chooser.showOpenDialog(null);
-            }
-        });*/
     }
 }
 
