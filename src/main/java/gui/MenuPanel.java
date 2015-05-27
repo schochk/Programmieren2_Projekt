@@ -1,10 +1,11 @@
 package gui;
 
-import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.Color;
 
 /**
  * Created by schoch on 13.05.15.
@@ -23,16 +24,15 @@ public class MenuPanel extends JPanel {
 
         JLabel variableX = new JLabel("Variabel X:");
         add(variableX);
-        String variableXList[] = {seriesFile.getNames().get(0),seriesFile.getNames().get(1) };
+        String variableList[] = seriesFile.getNames().toArray(new String[0]);
 
-        JComboBox variableXSelect = new JComboBox(variableXList);
+        JComboBox variableXSelect = new JComboBox(variableList);
         add(variableXSelect);
 
         JLabel variableY = new JLabel("Variabel Y:");
         add(variableY);
-        String variableYList[] = {seriesFile.getNames().get(0),seriesFile.getNames().get(1)};
 
-        JComboBox variableYSelect = new JComboBox(variableYList);
+        JComboBox variableYSelect = new JComboBox(variableList);
         add(variableYSelect);
 
     }
