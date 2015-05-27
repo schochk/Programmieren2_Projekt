@@ -40,10 +40,11 @@ public class Main extends JPanel {
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.err.println("Can not load file.");
+
                 }
 
                 if (seriesFile != null) {
-                    System.out.println(seriesFile.getNames());
+                    System.out.println(seriesFile.getNames());;
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
@@ -62,13 +63,11 @@ public class Main extends JPanel {
                     panelScatterPlot.setLayout(new BorderLayout());
                     panelPlot.add(panelScatterPlot);
 
-                    ScatterPlotOption scatterPlotOption = new ScatterPlotOption();
-                    scatterPlotOption.optionComponent();
-                    panelScatterPlot.add(scatterPlotOption, BorderLayout.NORTH);
+                    ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
+                    panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-                    ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
-                    scatterPlot.scatterPlotComponent();
-                    panelScatterPlot.add(scatterPlot, BorderLayout.CENTER);
+                    ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
+                    panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
 
                     JPanel panelHistogram = new JPanel();
                     panelHistogram.setLayout(new GridLayout(1, 2));
@@ -99,10 +98,12 @@ public class Main extends JPanel {
 
                 }
 
+
                 } else {
                     System.err.println("Unable to read the values.");
                 }
             }
         }
     }
+
 
