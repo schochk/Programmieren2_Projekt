@@ -14,10 +14,10 @@ public class HistogramRight extends JPanel {
     double minvy = Collections.min(yList);
 
 
-    public void histogramRightComponent() {
+    public HistogramRight() {
 
-        JLabel textHR = new JLabel("Histogram Rechts");
-        add(textHR);
+        JLabel nameHR = new JLabel("Histogram Rechts");
+        add(nameHR);
     }
 
     public void paintComponent (Graphics g){

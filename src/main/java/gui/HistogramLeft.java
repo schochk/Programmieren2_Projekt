@@ -15,10 +15,10 @@ public class HistogramLeft extends JPanel {
     double maxvx = Collections.max(xList);
     double minvx = Collections.min(xList);
 
-    public void histogramLeftComponent(){
+    public HistogramLeft(){
 
-        JLabel textHL = new JLabel("Histogram Links");
-        add(textHL);
+        JLabel nameHL = new JLabel("Histogram Links");
+        add(nameHL);
     }
 
     public void paintComponent (Graphics g){
