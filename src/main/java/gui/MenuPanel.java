@@ -15,15 +15,15 @@ public class MenuPanel extends JPanel {
 
         setBackground(Color.YELLOW);
 
-        JLabel test = new JLabel("Datei wählen:");
+        /*JLabel test = new JLabel("Datei wählen:");
         add(test);
 
         JButton data = new JButton("Datei");
-        add(data);
+        add(data);*/
 
         JLabel variable01 = new JLabel("Variabel X:");
         add(variable01);
-        String variabel01Liste[] = {"a", "b", "c"};
+        String variabel01Liste[] = {getName()};
 
         JComboBox variable01Auswahl = new JComboBox(variabel01Liste);
         add(variable01Auswahl);
@@ -42,13 +42,13 @@ public class MenuPanel extends JPanel {
         JComboBox variablePGAuswahl = new JComboBox(variabelpunktListe);
         add(variablePGAuswahl);
         */
-        data.addActionListener(new ActionListener() {       //File auswählen
+       /* data.addActionListener(new ActionListener() {       //File auswählen
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser chooser = new JFileChooser();
                 chooser.showOpenDialog(null);
             }
-        });
+        });*/
     }
 }
 
