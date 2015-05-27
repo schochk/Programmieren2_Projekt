@@ -2,8 +2,6 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -23,49 +21,23 @@ public class ScatterPlotPanel extends JPanel {
 
     boolean q=false;
 
-    int r = 5;
+    int radius = 5;
 
-    //private int q;
+    public void drawLine (boolean q){
+        this.q = q;
+        repaint();
+    }
 
-    public ScatterPlotPanel() {
-
-        //this.q = q;
-
-        /*JLabel textSP = new JLabel("ScatterPlot");
-        spoptionPanel.add(textSP);
-        */
-
-        final JCheckBox lineButton = new JCheckBox("DrawLines");
-        add(lineButton);
-        lineButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){q=true;}
-                else{q=false;}
-            }
-        });
-
-        JSlider pointSize = new JSlider (1, 31, 5);
-        pointSize.setMajorTickSpacing(10);
-        pointSize.setMinorTickSpacing(1);
-        pointSize.setPaintTicks(true);
-        pointSize.setPaintLabels(true);
-
-        add(pointSize);
-
-        pointSize.addChangeListener(e -> {
-            if (!pointSize.getValueIsAdjusting()) {
-                r = pointSize.getValue();
-            }
-        });
-
+    public void adjustRadius (int radius){
+        this.radius = radius;
+        repaint();
     }
 
     public void paintComponent(Graphics g) {
 
 
-        double xd = (getWidth() - 2*r) / (maxvx-minvx);
-        double yd = (getHeight() - 2*r) / (maxvy-minvy);
+        double xd = (getWidth() - 2* radius) / (maxvx-minvx);
+        double yd = (getHeight() - 2* radius) / (maxvy-minvy);
 
         g.setColor(Color.ORANGE);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -74,8 +46,7 @@ public class ScatterPlotPanel extends JPanel {
 
         for(int i = 0; i < xList.size(); i++){
 
-            g.fillOval((int)((2 * r) + (xd * (xList.get(i)-minvx)-2*r)), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r),2*r,2*r);
-
+            g.fillOval((int)((2 * radius) + (xd * (xList.get(i)-minvx)-2* radius)), (int)(getHeight()-(yd*(yList.get(i)-minvy))-2* radius),2* radius,2* radius);
         }
 
         if(q) {
@@ -83,21 +54,17 @@ public class ScatterPlotPanel extends JPanel {
 
             int j = i+1;
 
-            int ax = (int)((2 * r) + (xd * (xList.get(i)-minvx)-2*r)+r);
-            int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2*r+r);
+            int ax = (int)((2 * radius) + (xd * (xList.get(i)-minvx)-2* radius)+ radius);
+            int ay = (int)(getHeight()-(yd*(yList.get(i)-minvy))-2* radius + radius);
 
-            int bx = (int)((2 * r) + (xd * (xList.get(j)-minvx)-2*r)+r);
-            int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2*r+r);
+            int bx = (int)((2 * radius) + (xd * (xList.get(j)-minvx)-2* radius)+ radius);
+            int by = (int)(getHeight()-(yd*(yList.get(j)-minvy))-2* radius + radius);
 
             g.drawLine(ax, ay, bx, by);
             }
         }
-
         updateUI();
-
     }
-
-
 }
 
 

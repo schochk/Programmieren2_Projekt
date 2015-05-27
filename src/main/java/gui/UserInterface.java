@@ -9,8 +9,6 @@ import java.awt.*;
  */
 public class UserInterface extends JPanel {
 
-
-
     public static void main(String[] args) {
 
         JFrame mainFrame = new JFrame();
@@ -31,11 +29,10 @@ public class UserInterface extends JPanel {
         panelScatterPlot.setLayout(new BorderLayout());
         panelPlot.add(panelScatterPlot);
 
-
         ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
         panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-        ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel();
+        ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
         panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
 
         JPanel panelHistogram = new JPanel();

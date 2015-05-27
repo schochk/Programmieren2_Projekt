@@ -10,10 +10,7 @@ import java.awt.event.ActionListener;
  */
 public class ScatterPlotOptionPanel extends JPanel{
 
-    boolean q = false;
-    int r = 5;
-
-    public ScatterPlotOptionPanel(){
+    public ScatterPlotOptionPanel(ScatterPlotPanel scatterPlotPanel){
 
         setBackground(Color.PINK);
 
@@ -22,8 +19,8 @@ public class ScatterPlotOptionPanel extends JPanel{
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){q=true;}
-                else{q=false;}
+                if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
+                else{scatterPlotPanel.drawLine(false);}
             }
         });
 
@@ -37,7 +34,7 @@ public class ScatterPlotOptionPanel extends JPanel{
 
         pointSize.addChangeListener(e -> {
             if (!pointSize.getValueIsAdjusting()) {
-                r = pointSize.getValue();
+                scatterPlotPanel.adjustRadius(pointSize.getValue());
             }
         });
 
