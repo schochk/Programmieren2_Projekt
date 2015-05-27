@@ -3,6 +3,7 @@ package ch.n1b.mirij2;
 import ch.n1b.mirij2.loader.ColumnFile;
 import ch.n1b.mirij2.loader.RowFile;
 import ch.n1b.mirij2.loader.SeriesFileLoader;
+import ch.n1b.mirij2.model.DataSeries;
 import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class Main {
                 } else {
                     System.err.println("Unable to read the values.");
                 }
+                new DataSeries(seriesFile.getSerie("variable01"), seriesFile.getSerie("variable02"));
 
 
             }

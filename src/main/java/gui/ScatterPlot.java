@@ -1,5 +1,5 @@
 package gui;
-
+import ch.n1b.mirij2.model.DataSeries;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

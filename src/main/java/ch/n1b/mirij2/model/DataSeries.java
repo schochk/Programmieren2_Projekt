@@ -6,7 +6,9 @@ package ch.n1b.mirij2.model;
  * GoF decorator pattern
  */
 public class DataSeries {
-    private final Serie serieX,serieY;
+
+
+    public final Serie serieX,serieY;
 
     public DataSeries(Serie serieX, Serie serieY) {
         if (serieX.size() != serieY.size()) {
