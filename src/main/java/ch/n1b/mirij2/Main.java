@@ -64,11 +64,9 @@ public class Main extends JPanel {
                     panelPlot.add(panelScatterPlot);
 
                     ScatterPlotOption scatterPlotOption = new ScatterPlotOption();
-                    scatterPlotOption.optionComponent();
                     panelScatterPlot.add(scatterPlotOption, BorderLayout.NORTH);
 
                     ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einf�gen
-                    scatterPlot.scatterPlotComponent();
                     panelScatterPlot.add(scatterPlot, BorderLayout.CENTER);
 
                     JPanel panelHistogram = new JPanel();
@@ -76,15 +74,12 @@ public class Main extends JPanel {
                     panelPlot.add(panelHistogram);
 
                     HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einf�gen
-                    histogramLeft.histogramLeftComponent();
                     panelHistogram.add(histogramLeft);
 
                     HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einf�gen
-                    histogramRight.histogramRightComponent();
                     panelHistogram.add(histogramRight);
 
                     DataPanel dataPanel = new DataPanel();
-                    dataPanel.dataComponent();
                     panelMain.add(dataPanel, BorderLayout.SOUTH);
 
                     mainFrame.add(panelMain);
