@@ -31,6 +31,7 @@ public class UserInterface extends JPanel {
         panelScatterPlot.setLayout(new BorderLayout());
         panelPlot.add(panelScatterPlot);
 
+
         ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
         panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
