@@ -18,7 +18,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ch.n1b.ch.n1b.ch.n1b.mirij2.Main</mainClass>
+                            <mainClass>gui.UserInterface</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

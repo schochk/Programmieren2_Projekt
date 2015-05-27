@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class HistogramRight extends JPanel {
 
-    java.util.List<Integer> yList = Arrays.asList(1,2,3,4000,3880,3620,3200,2620,2030,1470,1170,960,880,1010,1280,1680,2200,2730,3260,3660,3910,2980,2780,2760,3010,3050,2860,3070,2860,2120,1780,1630,1610,1710,2020);
+    java.util.List<Integer> yList = Arrays.asList(4000,3880,3620,3200,2620,2030,1470,1170,960,880,1010,1280,1680,2200,2730,3260,3660,3910,2980,2780,2760,3010,3050,2860,3070,2860,2120,1780,1630,1610,1710,2020);
     double maxvy = Collections.max(yList);
     double minvy = Collections.min(yList);
 
