@@ -1,5 +1,6 @@
 package gui;
 
+import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.awt.*;
  */
 public class MenuPanel extends JPanel {
 
-    public void menuComponent() {
+    public void menuComponent(SeriesFile seriesFile) {
 
         setBackground(Color.YELLOW);
 
@@ -22,18 +23,21 @@ public class MenuPanel extends JPanel {
 
         JLabel variableX = new JLabel("Variabel X:");
         add(variableX);
-        String variableXList[] = {getName()};
+        String variableXList[] = {seriesFile.getNames().get(0),seriesFile.getNames().get(1) };
 
         JComboBox variableXSelect = new JComboBox(variableXList);
         add(variableXSelect);
 
         JLabel variableY = new JLabel("Variabel Y:");
         add(variableY);
-        String variableYList[] = {"a", "b", "c"};
+        String variableYList[] = {seriesFile.getNames().get(0),seriesFile.getNames().get(1)};
 
         JComboBox variableYSelect = new JComboBox(variableYList);
         add(variableYSelect);
 
+    }
+
+    public void menuComponent() {
     }
 }
 
