@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
  */
 public class RowFile implements SeriesFileLoader {
     @Override
-    public SeriesFile load(String fileName) throws FileNotFoundException, IOException {
-        Scanner scanner = new Scanner(new File(fileName));
+    public SeriesFile load(File file) throws FileNotFoundException, IOException {
+        Scanner scanner = new Scanner(file);
         int size = Integer.parseInt(scanner.nextLine());
         List<String> names = new ArrayList<>();
 

@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
  */
 public class ColumnFile implements SeriesFileLoader {
     @Override
-    public SeriesFile load(String fileName) throws FileNotFoundException {
+    public SeriesFile load(File file) throws FileNotFoundException {
 
-        Scanner scanner = new Scanner(new File(fileName));
+        Scanner scanner = new Scanner(file);
 
         List<String> names = parseNames(scanner.nextLine());
         List<Serie> series = new ArrayList<>();
@@ -40,11 +40,11 @@ public class ColumnFile implements SeriesFileLoader {
 
         }
 
-        SeriesFile file = new SeriesFile();
+        SeriesFile dataFile = new SeriesFile();
         for (Serie serie : series) {
-            file.add(serie);
+            dataFile.add(serie);
         }
-        return file;
+        return dataFile;
     }
     private List<String> parseNames(String row) {
         String[] values = row.split("\t");

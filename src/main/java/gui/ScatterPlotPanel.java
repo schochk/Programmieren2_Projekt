@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ScatterPlotPanel extends JPanel {
 
-    List<Integer> xList = Arrays.asList();
+    List<Integer> xList = Arrays.asList(2620,3190,3640,4000,4180,4150,3860,3520,3080,2630,2050,1610,1300,1090,1130,1340,1680,2140,1980,2000,2250,2220,2960,2930,3170,3140,3500,3280,2890,2500,2180,1860);
     double maxvx = Collections.max(xList);
     double minvx = Collections.min(xList);
 
@@ -42,7 +42,6 @@ public class ScatterPlotPanel extends JPanel {
         g.setColor(Color.ORANGE);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         g.setColor(Color.BLACK);
-
 
         for(int i = 0; i < xList.size(); i++){
 

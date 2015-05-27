@@ -1,5 +1,7 @@
 package gui;
 
+import ch.n1b.mirij2.model.SeriesFile;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -40,15 +42,12 @@ public class UserInterface extends JPanel {
         panelPlot.add(panelHistogram);
 
         HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einfügen
-        histogramLeft.histogramLeftComponent();
         panelHistogram.add(histogramLeft);
 
         HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
-        histogramRight.histogramRightComponent();
         panelHistogram.add(histogramRight);
 
         DataPanel dataPanel = new DataPanel();
-        dataPanel.dataComponent();
         panelMain.add(dataPanel, BorderLayout.SOUTH);
 
         mainFrame.add(panelMain);

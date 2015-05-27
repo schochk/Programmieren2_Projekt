@@ -7,7 +7,7 @@ import javax.swing.*;
  */
 public class DataPanel extends JPanel {
 
-    public void dataComponent(){
+    public DataPanel(){
 
         JLabel data = new JLabel("Datei: ");
         add(data);

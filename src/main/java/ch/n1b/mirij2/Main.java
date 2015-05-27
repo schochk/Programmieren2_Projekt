@@ -44,7 +44,7 @@ public class Main extends JPanel {
                 }
 
                 if (seriesFile != null) {
-                    System.out.println(seriesFile.getNames());;
+                    System.out.println(seriesFile.getNames());
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
@@ -66,18 +66,19 @@ public class Main extends JPanel {
                     ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
                     panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-                    ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
-                    panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
+                    ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
+                    scatterPlot.scatterPlotComponent();
+                    panelScatterPlot.add(scatterPlot, BorderLayout.CENTER);
 
                     JPanel panelHistogram = new JPanel();
                     panelHistogram.setLayout(new GridLayout(1, 2));
                     panelPlot.add(panelHistogram);
 
-                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einfügen
+                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einf?gen
                     histogramLeft.histogramLeftComponent();
                     panelHistogram.add(histogramLeft);
 
-                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
+                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einf?gen
                     histogramRight.histogramRightComponent();
                     panelHistogram.add(histogramRight);
 
