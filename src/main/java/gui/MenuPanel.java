@@ -42,7 +42,7 @@ public class MenuPanel extends JPanel {
         JComboBox variablePGAuswahl = new JComboBox(variabelpunktListe);
         add(variablePGAuswahl);
         */
-        data.addActionListener(new ActionListener() {
+        data.addActionListener(new ActionListener() {       //File auswählen
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser chooser = new JFileChooser();
