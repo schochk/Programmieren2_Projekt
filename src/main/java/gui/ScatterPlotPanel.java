@@ -3,7 +3,6 @@ package gui;
 import ch.n1b.mirij2.model.DataSeries;
 import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
-import javafx.scene.chart.XYChart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +15,6 @@ import java.util.List;
  */
 public class ScatterPlotPanel extends JPanel {
     Serie xList;
-
     Serie yList;
 
     boolean drawLines = false;

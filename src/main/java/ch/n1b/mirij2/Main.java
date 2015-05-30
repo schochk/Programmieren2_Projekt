@@ -3,7 +3,6 @@ package ch.n1b.mirij2;
 import ch.n1b.mirij2.loader.ColumnFile;
 import ch.n1b.mirij2.loader.RowFile;
 import ch.n1b.mirij2.loader.SeriesFileLoader;
-import ch.n1b.mirij2.model.DataSeries;
 import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
 import gui.*;
@@ -25,8 +24,7 @@ public class Main extends JPanel {
 
         JFileChooser chooser = new JFileChooser();
         Scanner inputScanner = null;
-        if (chooser.showOpenDialog(null)== JFileChooser.APPROVE_OPTION)
-        {
+        if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
             inputScanner = new Scanner(selectedFile);
             nameFile = selectedFile.getName();
@@ -88,16 +86,15 @@ public class Main extends JPanel {
                     mainFrame.add(panelMain);
 
                     JPanel panel = new JPanel();
-                    JButton button = new JButton("Drück mich");
+                    JButton button = new JButton("OK");
                     panel.add(button);
                     panelMenu.add(panel);
-
 
 
                     final int FRAME_WIDTH = 700;
                     final int FRAME_HEIGHT = 600;
                     mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-                    mainFrame.setTitle("Programmieren 2 Projekt");
+                    mainFrame.setTitle(nameFile);
                     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     mainFrame.setLocationRelativeTo(null); // center on screen
 
@@ -105,13 +102,14 @@ public class Main extends JPanel {
 
                     button.addActionListener(new ActionListener() {
                         @Override
-                        public void actionPerformed(ActionEvent e) { //call back, wenn button gedrückt wurde, führe es au
+                        public void actionPerformed(ActionEvent e) { //call back, wenn button gedrückt wurde, führe es aus
 
-                            String nameX= panelMenu.getNamex();
-                            String nameY= panelMenu.getNamey();
+                            String nameX = panelMenu.getNameX();
+                            String nameY = panelMenu.getNameY();
                             Serie seriex = seriesFile.getSerie(nameX);
                             Serie seriey = seriesFile.getSerie(nameY);
-                            scatterPlotPanel.setter(seriex,seriey);
+                            scatterPlotPanel.setter(seriex, seriey);
+                            histogramLeft.histogrammL(seriex);
                         }
                     });
 
@@ -122,13 +120,15 @@ public class Main extends JPanel {
                 }
 
 
-
             } else {
                 System.err.println("Unable to read the values.");
             }
+
         }
     }
+
 }
+
 
 
 

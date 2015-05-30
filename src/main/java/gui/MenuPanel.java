@@ -36,11 +36,11 @@ public class MenuPanel extends JPanel {
     JComboBox boxX;
     JComboBox boxY;
 
-    public String getNamex(){
+    public String getNameX(){
         String namex = this.boxX.getSelectedItem().toString();
         return namex;
     }
-    public String getNamey(){
+    public String getNameY(){
         String namey = this.boxY.getSelectedItem().toString();
         return namey;
     }
