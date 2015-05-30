@@ -1,6 +1,5 @@
 package gui;
 
-import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;

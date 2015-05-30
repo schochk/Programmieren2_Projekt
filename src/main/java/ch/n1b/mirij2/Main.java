@@ -4,31 +4,45 @@ import ch.n1b.mirij2.loader.ColumnFile;
 import ch.n1b.mirij2.loader.RowFile;
 import ch.n1b.mirij2.loader.SeriesFileLoader;
 import ch.n1b.mirij2.model.DataSeries;
+import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
 import gui.*;
 
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main extends JPanel {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        String nameFile = null;
 
-        Scanner inputScanner = new Scanner(System.in);
+        JFileChooser chooser = new JFileChooser();
+        Scanner inputScanner = null;
+        if (chooser.showOpenDialog(null)== JFileChooser.APPROVE_OPTION)
+        {
+            File selectedFile = chooser.getSelectedFile();
+            inputScanner = new Scanner(selectedFile);
+            String inputLine = inputScanner.nextLine();
+            nameFile = selectedFile.getName();
+
+
+        /*Scanner inputScanner = new Scanner(System.in);
         while (true) {
             // Read the file name
             System.out.print("File name: ");
-            String inputLine = inputScanner.nextLine();
+            ;*/
 
             SeriesFileLoader loader = null;
 
             // Decide which concrete loader to use.
-            if (inputLine.endsWith("txt")) {
+            if (nameFile.endsWith("txt")) {
                 loader = new ColumnFile(); //tab-delimited
-            } else if (inputLine.endsWith("lin")) {
+            } else if (nameFile.endsWith("lin")) {
                 loader = new RowFile();
             } else {
                 System.err.println("File format unknown.");
@@ -36,7 +50,7 @@ public class Main extends JPanel {
             if (loader != null) {
                 SeriesFile seriesFile = null;
                 try {
-                    seriesFile = loader.load(inputLine);
+                    seriesFile = loader.load(selectedFile); /*inputLine*/
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.err.println("Can not load file.");
@@ -45,6 +59,7 @@ public class Main extends JPanel {
 
                 if (seriesFile != null) {
                     System.out.println(seriesFile.getNames());
+
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
@@ -52,7 +67,7 @@ public class Main extends JPanel {
                     panelMain.setLayout(new BorderLayout());
 
                     MenuPanel panelMenu = new MenuPanel();          //MenuPanel
-                    panelMenu.menuComponent();
+                    panelMenu.menuComponent(seriesFile);
                     panelMain.add(panelMenu, BorderLayout.NORTH);
 
                     JPanel panelPlot = new JPanel();
@@ -66,24 +81,20 @@ public class Main extends JPanel {
                     ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
                     panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-                    ScatterPlot scatterPlot = new ScatterPlot(); //ScatterPlot einfügen
-                    scatterPlot.scatterPlotComponent();
-                    panelScatterPlot.add(scatterPlot, BorderLayout.CENTER);
+                    ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
+                    panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
 
                     JPanel panelHistogram = new JPanel();
                     panelHistogram.setLayout(new GridLayout(1, 2));
                     panelPlot.add(panelHistogram);
 
-                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einf?gen
-                    histogramLeft.histogramLeftComponent();
+                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einfügen
                     panelHistogram.add(histogramLeft);
 
-                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einf?gen
-                    histogramRight.histogramRightComponent();
+                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
                     panelHistogram.add(histogramRight);
 
                     DataPanel dataPanel = new DataPanel();
-                    dataPanel.dataComponent();
                     panelMain.add(dataPanel, BorderLayout.SOUTH);
 
                     mainFrame.add(panelMain);
@@ -98,13 +109,15 @@ public class Main extends JPanel {
                     mainFrame.setVisible(true);
 
                 }
+                new DataSeries(seriesFile.getSerie("Variabel 1"), seriesFile.getSerie("Variabel 2"));
 
 
-                } else {
-                    System.err.println("Unable to read the values.");
-                }
+            } else {
+                System.err.println("Unable to read the values.");
             }
         }
     }
+}
+
 
 

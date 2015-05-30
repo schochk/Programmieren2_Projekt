@@ -1,6 +1,6 @@
 package gui;
 
-import ch.n1b.mirij2.model.Serie;
+
 import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
@@ -15,11 +15,6 @@ public class MenuPanel extends JPanel {
 
         setBackground(Color.YELLOW);
 
-        /*JLabel test = new JLabel("Datei wählen:");    //Dateiauswahl Panel
-        add(test);
-
-        JButton data = new JButton("Datei");
-        add(data);*/
 
         JLabel variableX = new JLabel("Variabel X:");
         add(variableX);
