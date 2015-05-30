@@ -11,6 +11,8 @@ import gui.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,16 +43,9 @@ public class Main extends JPanel {
                 System.err.println("File format unknown.");
             }
             if (loader != null) {
-                SeriesFile seriesFile = null;
+                final SeriesFile seriesFile;
                 try {
                     seriesFile = loader.load(selectedFile); /*inputLine*/
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.err.println("Can not load file.");
-
-                }
-
-                if (seriesFile != null) {
                     System.out.println(seriesFile.getNames());
 
                     JFrame mainFrame = new JFrame();
@@ -71,7 +66,7 @@ public class Main extends JPanel {
                     panelScatterPlot.setLayout(new BorderLayout());
                     panelPlot.add(panelScatterPlot);
 
-                    ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
+                    final ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
                     panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
                     ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
@@ -92,6 +87,13 @@ public class Main extends JPanel {
 
                     mainFrame.add(panelMain);
 
+                    JPanel panel = new JPanel();
+                    JButton button = new JButton("Drück mich");
+                    panel.add(button);
+                    panelMenu.add(panel);
+
+
+
                     final int FRAME_WIDTH = 700;
                     final int FRAME_HEIGHT = 600;
                     mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -101,8 +103,24 @@ public class Main extends JPanel {
 
                     mainFrame.setVisible(true);
 
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) { //call back, wenn button gedrückt wurde, führe es au
+
+                            String nameX= panelMenu.getNamex();
+                            String nameY= panelMenu.getNamey();
+                            Serie seriex = seriesFile.getSerie(nameX);
+                            Serie seriey = seriesFile.getSerie(nameY);
+                            scatterPlotPanel.setter(seriex,seriey);
+                        }
+                    });
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.err.println("Can not load file.");
+
                 }
-                new DataSeries(seriesFile.getSerie("Variabel 1"), seriesFile.getSerie("Variabel 2"));
+
 
 
             } else {
