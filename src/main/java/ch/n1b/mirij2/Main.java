@@ -27,15 +27,8 @@ public class Main extends JPanel {
         {
             File selectedFile = chooser.getSelectedFile();
             inputScanner = new Scanner(selectedFile);
-            String inputLine = inputScanner.nextLine();
             nameFile = selectedFile.getName();
 
-
-        /*Scanner inputScanner = new Scanner(System.in);
-        while (true) {
-            // Read the file name
-            System.out.print("File name: ");
-            ;*/
 
             SeriesFileLoader loader = null;
 
