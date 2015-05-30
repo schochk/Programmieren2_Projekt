@@ -25,7 +25,7 @@ public class HistogramLeft extends JPanel {
         add(nameHL);
 
     }
-    public void histogrammL(Serie seriex) {
+    public void histogramL(Serie seriex) {
         this.xList = seriex;
         this.repaint();
     }

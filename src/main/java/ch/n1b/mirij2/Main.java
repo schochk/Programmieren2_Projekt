@@ -109,7 +109,8 @@ public class Main extends JPanel {
                             Serie seriex = seriesFile.getSerie(nameX);
                             Serie seriey = seriesFile.getSerie(nameY);
                             scatterPlotPanel.setter(seriex, seriey);
-                            histogramLeft.histogrammL(seriex);
+                            histogramLeft.histogramL(seriex);
+                            histogramRight.histogramR(seriey);
                         }
                     });
 
