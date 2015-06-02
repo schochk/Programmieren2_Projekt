@@ -19,14 +19,14 @@ import java.util.Scanner;
 
 public class Main extends JPanel {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public void main(String[] args) throws FileNotFoundException {
         String nameFile = null;
 
         JFileChooser chooser = new JFileChooser();
-        Scanner inputScanner = null;
+        //Scanner inputScanner = null;
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
-            inputScanner = new Scanner(selectedFile);
+            //inputScanner = new Scanner(selectedFile);
             nameFile = selectedFile.getName();
 
 
@@ -102,17 +102,21 @@ public class Main extends JPanel {
 
                     button.addActionListener(new ActionListener() {
                         @Override
-                        public void actionPerformed(ActionEvent e) { //call back, wenn button gedrückt wurde, führe es aus
+                        public void actionPerformed(ActionEvent e) {
 
                             String nameX = panelMenu.getNameX();
                             String nameY = panelMenu.getNameY();
                             Serie seriex = seriesFile.getSerie(nameX);
                             Serie seriey = seriesFile.getSerie(nameY);
                             scatterPlotPanel.setter(seriex, seriey);
-                            histogramLeft.histogramL(seriex);
+                            histogramLeft.histogramL(seriex, nameX);
                             histogramRight.histogramR(seriey);
+
+
                         }
+
                     });
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -126,7 +130,11 @@ public class Main extends JPanel {
             }
 
         }
+
+
+
     }
+
 
 }
 

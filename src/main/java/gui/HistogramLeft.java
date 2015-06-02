@@ -6,6 +6,7 @@ import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -17,16 +18,19 @@ import gui.MenuPanel;
 public class HistogramLeft extends JPanel {
 
     Serie xList;
+    String xname;
 
 
     public HistogramLeft(){
 
-        JLabel nameHL = new JLabel("name");
+
+        JLabel nameHL = new JLabel(xname);
         add(nameHL);
 
     }
-    public void histogramL(Serie seriex) {
+    public void histogramL(Serie seriex, String nameX) {
         this.xList = seriex;
+        this.xname = nameX;
         this.repaint();
     }
 
