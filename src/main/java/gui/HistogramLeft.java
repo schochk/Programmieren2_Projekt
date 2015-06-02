@@ -1,25 +1,79 @@
 package gui;
 
+import ch.n1b.mirij2.model.DataSeries;
 import ch.n1b.mirij2.model.Serie;
-import ch.n1b.mirij2.Main;
-import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import gui.MenuPanel;
 
 /**
  * Created by schoch on 20.05.15.
  */
 public class HistogramLeft extends JPanel {
 
+    Serie serieTest;
+    List<Double> values;
+    double minValue;
+    double binSize;
+    double numberOfBars;
+    HistogramModel histogramModel;
+    List<Integer> bars;
+    String variableName = "";
+
+
     Serie xList;
 
 
-    public HistogramLeft(){
+    public HistogramLeft(Serie serie){
+
+        int defaultVariable = 0;
+        this.serieTest = serie;
+        histogramModel = new HistogramModel(this.serieTest);
+        setVariableNumber(defaultVariable);
+        this.variableName = this.serieTest.getVariableNames().get(defaultVariable);
+        histogramModel.setVariableNumber(defaultVariable);
+        numberOfBars = histogramModel.getNumberOfBars();
+        repaint();
+    }
+
+    public void setVariableText(String variableName) {
+        this.variableName = variableName;
+        repaint();
+    }
+
+    public void setVariableNumber(int number) {
+        histogramModel.setVariableNumber(number);
+        numberOfBars = histogramModel.getNumberOfBars();
+        repaint();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        bars = histogramModel.getBars();
+        double height = getHeight();
+
+        double maxValueInBin = Collections.max(bars);
+        int barWidth = (int) (getWidth() / numberOfBars);
+
+        g.setColor(Color.ORANGE);
+        for (int i = 0; i < bars.size(); i++) {
+            g.fillRect((barWidth * i), (int) (height - (height / maxValueInBin * bars.get(i))), barWidth, (int)height);
+        }
+
+        g.setColor(Color.YELLOW);
+        for (int i = 0; i < bars.size(); i++) {
+            g.drawRect((barWidth * i), (int) (height - (height / maxValueInBin * bars.get(i))), barWidth, (int)height);
+        }
+
+        g.setColor(Color.BLACK);
+        g.drawString(variableName, 5, 15);
+    }
+    }
+
+
+
+   /* public HistogramLeft(){
 
         JLabel nameHL = new JLabel("name");
         add(nameHL);
@@ -28,9 +82,15 @@ public class HistogramLeft extends JPanel {
     public void histogramL(Serie seriex) {
         this.xList = seriex;
         this.repaint();
-    }
+    }*/
 
-    public void paintComponent (Graphics g) {
+
+
+
+
+
+
+   /* public void paintComponent (Graphics g) {
         if (xList != null) {
             double maxvx = xList.range().getY();
             double minvx = xList.range().getX();
@@ -86,5 +146,5 @@ public class HistogramLeft extends JPanel {
             updateUI();
 
         }
-    }
-}
+    }*/
+

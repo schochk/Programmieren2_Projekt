@@ -8,10 +8,13 @@ import java.util.List;
  * Created by Mirjam on 17.05.2015.
  */
 public class Serie {
+
     private List<Double> points = new ArrayList<>();
+
     private final String name;
 
     public Serie(String name, List<Double> points) {
+
         this.name = name;
         this.points = points;
     }

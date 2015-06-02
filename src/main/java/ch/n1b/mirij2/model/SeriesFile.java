@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
  * Created by Mirjam on 17.05.2015.
  */
 public class SeriesFile {
+
     private List<Serie> seriesList = new ArrayList<>();
 
     public Serie getSerie(String name) {
