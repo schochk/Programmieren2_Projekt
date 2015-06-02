@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Main extends JPanel {
 
-    public void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
         String nameFile = null;
 
         JFileChooser chooser = new JFileChooser();
@@ -109,9 +109,9 @@ public class Main extends JPanel {
                             Serie seriex = seriesFile.getSerie(nameX);
                             Serie seriey = seriesFile.getSerie(nameY);
                             scatterPlotPanel.setter(seriex, seriey);
-                            histogramLeft.histogramL(seriex, nameX);
-                            histogramRight.histogramR(seriey);
-
+                            histogramLeft.histogramLS(seriex);
+                            histogramLeft.histogramLN(nameX);
+                            histogramRight.histogramR(seriey, nameY);
 
                         }
 

@@ -1,16 +1,9 @@
 package gui;
 
 import ch.n1b.mirij2.model.Serie;
-import ch.n1b.mirij2.Main;
-import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import gui.MenuPanel;
 
 /**
  * Created by schoch on 20.05.15.
@@ -18,23 +11,23 @@ import gui.MenuPanel;
 public class HistogramLeft extends JPanel {
 
     Serie xList;
-    String xname;
+    String xName;
 
 
-    public HistogramLeft(){
 
-
-        JLabel nameHL = new JLabel(xname);
-        add(nameHL);
-
-    }
-    public void histogramL(Serie seriex, String nameX) {
+    public void histogramLS(Serie seriex) {
         this.xList = seriex;
-        this.xname = nameX;
+        this.repaint();
+    }
+    public void histogramLN(String nameX){
+        this.xName = nameX;
         this.repaint();
     }
 
+
+
     public void paintComponent (Graphics g) {
+
         if (xList != null) {
             double maxvx = xList.range().getY();
             double minvx = xList.range().getX();
@@ -66,6 +59,7 @@ public class HistogramLeft extends JPanel {
                 }
             }
 
+
             double h = a + b + c + d + e + f;
 
             int barHeight = (int) (getHeight() / h);
@@ -91,4 +85,5 @@ public class HistogramLeft extends JPanel {
 
         }
     }
+
 }

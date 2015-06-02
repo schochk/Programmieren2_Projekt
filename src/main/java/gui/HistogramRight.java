@@ -12,15 +12,17 @@ import java.util.*;
 public class HistogramRight extends JPanel {
 
     Serie yList;
+    String yName;
 
 
     public HistogramRight() {
 
-        JLabel nameHR = new JLabel("Histogram Rechts");
+        JLabel nameHR = new JLabel(yName);
         add(nameHR);
     }
-    public void histogramR(Serie seriey) {
+    public void histogramR(Serie seriey, String nameY) {
         this.yList = seriey;
+        this.yName = nameY;
         this.repaint();
     }
 
