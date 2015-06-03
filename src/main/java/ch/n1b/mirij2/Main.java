@@ -108,10 +108,8 @@ public class Main extends JPanel {
                             String nameY = panelMenu.getNameY();
                             Serie seriex = seriesFile.getSerie(nameX);
                             Serie seriey = seriesFile.getSerie(nameY);
-                            scatterPlotPanel.setter(seriex, seriey);
-                            histogramLeft.histogramLS(seriex);
-                            histogramLeft.histogramLN(nameX);
-                            histogramLeft.histogramLN(nameX);
+                            scatterPlotPanel.setter(seriex, seriey, nameX, nameY);
+                            histogramLeft.histogramL(seriex, nameX);
                             histogramRight.histogramR(seriey, nameY);
 
                         }

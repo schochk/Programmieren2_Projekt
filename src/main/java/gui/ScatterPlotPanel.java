@@ -16,14 +16,18 @@ import java.util.List;
 public class ScatterPlotPanel extends JPanel {
     Serie xList;
     Serie yList;
+    String xName;
+    String yName;
 
     boolean drawLines = false;
 
     int radius = 5;
 
-    public void setter(Serie seriex, Serie seriey) {
+    public void setter(Serie seriex, Serie seriey, String nameX, String nameY) {
         this.xList = seriex;
         this.yList = seriey;
+        this.xName = nameX;
+        this.yName = nameY;
         this.repaint();
     }
 
@@ -56,7 +60,9 @@ public class ScatterPlotPanel extends JPanel {
             for (int i = 0; i < xList.size(); i++) {
 
                 g.fillOval((int) ((2 * radius) + (xd * (xList.get(i) - minvx) - 2 * radius)), (int) (getHeight() - (yd * (yList.get(i) - minvy)) - 2 * radius), 2 * radius, 2 * radius);
-            }
+            }g.setColor(Color.BLACK);
+            g.drawString(xName, 10, 20);
+            g.drawString(yName, getHeight(), getWidth());
 
             if (drawLines) {
                 for (int i = 0; i < xList.size() - 1; i++) {
@@ -69,7 +75,9 @@ public class ScatterPlotPanel extends JPanel {
 
                     g.drawLine(ax, ay, bx, by);
                 }
+
             }
+
             updateUI();
         }
 

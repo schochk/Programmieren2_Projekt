@@ -21,22 +21,12 @@ public class HistogramLeft extends JPanel {
 
 
 
-    public void histogramLS(Serie seriex) {
+    public void histogramL(Serie seriex, String nameX) {
         this.xList = seriex;
-        this.repaint();
-    }
-
-    public void histogramLN(String nameX) {
         this.xName = nameX;
         this.repaint();
+    }
 
-    }
-    public HistogramLeft(){
-        if (xName != null) {
-            JLabel nameHL = new JLabel(xName);
-            add(nameHL);
-        }
-    }
     public void paintComponent (Graphics g) {
         if (xList != null) {
             double maxvx = xList.range().getY();
@@ -89,6 +79,9 @@ public class HistogramLeft extends JPanel {
             g.drawRect(barWidth * 3, getHeight() - (barHeight * d), barWidth, getHeight());
             g.drawRect(barWidth * 4, getHeight() - (barHeight * e), barWidth, getHeight());
             g.drawRect(barWidth * 5, getHeight() - (barHeight * f), barWidth, getHeight());
+
+            g.setColor(Color.black);
+            g.drawString(xName, 10, 20);
 
             updateUI();
 
