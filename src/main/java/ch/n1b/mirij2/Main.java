@@ -7,7 +7,6 @@ import ch.n1b.mirij2.model.Serie;
 import ch.n1b.mirij2.model.SeriesFile;
 import gui.*;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +14,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main extends JPanel {
 
@@ -61,7 +59,7 @@ public class Main extends JPanel {
                     panelScatterPlot.setLayout(new BorderLayout());
                     panelPlot.add(panelScatterPlot);
 
-                    final ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfügen
+                    final ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einfï¿½gen
                     panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
                     ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
@@ -71,10 +69,10 @@ public class Main extends JPanel {
                     panelHistogram.setLayout(new GridLayout(1, 2));
                     panelPlot.add(panelHistogram);
 
-                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einfügen
+                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einfï¿½gen
                     panelHistogram.add(histogramLeft);
 
-                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
+                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfï¿½gen
                     panelHistogram.add(histogramRight);
 
 
@@ -106,6 +104,7 @@ public class Main extends JPanel {
                             scatterPlotPanel.setter(seriex, seriey, nameX, nameY);
                             histogramLeft.histogramL(seriex, nameX);
                             histogramRight.histogramR(seriey, nameY);
+
 
                         }
 

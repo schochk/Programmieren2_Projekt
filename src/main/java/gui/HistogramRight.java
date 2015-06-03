@@ -4,7 +4,8 @@ import ch.n1b.mirij2.model.Serie;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by schoch on 20.05.15.
@@ -58,9 +59,17 @@ public class HistogramRight extends JPanel {
                 }
             }
 
-            int h = a + b + c + d + e + f;
+            ArrayList<Integer> heightX = new ArrayList<>();
+            heightX.add(a);
+            heightX.add(b);
+            heightX.add(c);
+            heightX.add(d);
+            heightX.add(e);
+            heightX.add(f);
+            double maxValue = Collections.max(heightX);
 
-            int barHeight = getHeight() / h;
+
+            int barHeight = (int) (getHeight()/maxValue);
             int barWidth = getWidth() / 6;
 
             g.setColor(Color.GREEN);

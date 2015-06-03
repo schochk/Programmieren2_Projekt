@@ -1,15 +1,10 @@
 package gui;
 
 import ch.n1b.mirij2.model.Serie;
-import ch.n1b.mirij2.Main;
-import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import gui.MenuPanel;
+import java.util.*;
 
 /**
  * Created by schoch on 20.05.15.
@@ -59,18 +54,27 @@ public class HistogramLeft extends JPanel {
                 }
             }
 
-            double h = a + b + c + d + e + f;
 
-            int barHeight = (int) (getHeight() / h);
+            ArrayList<Integer> heightX = new ArrayList<>();
+            heightX.add(a);
+            heightX.add(b);
+            heightX.add(c);
+            heightX.add(d);
+            heightX.add(e);
+            heightX.add(f);
+            double maxValue = Collections.max(heightX);
+
+
+            int barHeight = (int) (getHeight()/maxValue);
             int barWidth = (int) (getWidth() / 6.0);
 
             g.setColor(Color.YELLOW);
             g.fillRect(0, getHeight() - (barHeight * a), (int) (barWidth * 1.0), getHeight());
-            g.fillRect((int) (barWidth * 1.0), getHeight() - barHeight * b, (int) (barWidth * 1.0), getHeight());
-            g.fillRect((int) (barWidth * 2.0), getHeight() - (barHeight * c), (int) (barWidth * 1.0), getHeight());
-            g.fillRect((int) (barWidth * 3.0), getHeight() - (barHeight * d), (int) (barWidth * 1.0), getHeight());
-            g.fillRect((int) (barWidth * 4.0), getHeight() - (barHeight * e), (int) (barWidth * 1.0), getHeight());
-            g.fillRect((int) (barWidth * 5.0), getHeight() - (barHeight * f), (int) (barWidth * 1.0), getHeight());
+            g.fillRect((int) (barWidth * 1.0), getHeight()- barHeight * b, (int) (barWidth * 1.0), getHeight());
+            g.fillRect((int) (barWidth * 2.0), getHeight()- (barHeight * c), (int) (barWidth * 1.0), getHeight());
+            g.fillRect((int) (barWidth * 3.0), getHeight()- (barHeight * d), (int) (barWidth * 1.0), getHeight());
+            g.fillRect((int) (barWidth * 4.0), getHeight()- (barHeight * e), (int) (barWidth * 1.0), getHeight());
+            g.fillRect((int) (barWidth * 5.0), getHeight()- (barHeight * f), (int) (barWidth * 1.0), getHeight());
 
             g.setColor(Color.ORANGE);
             g.drawRect(0, getHeight() - (barHeight * a), barWidth, getHeight());
