@@ -58,7 +58,7 @@ public class ScatterPlotPanel extends JPanel {
             }
             g.setColor(Color.BLACK);
             g.drawString(yName, 10, 20);
-            g.drawString(xName, getWidth()-120, getHeight()-20);
+            g.drawString(xName, getWidth()-120, getHeight()-10);
 
 
             if (drawLines) {

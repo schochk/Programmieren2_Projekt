@@ -14,8 +14,6 @@ public class HistogramLeft extends JPanel {
     Serie xList;
     String xName;
 
-
-
     public void histogramL(Serie seriex, String nameX) {
         this.xList = seriex;
         this.xName = nameX;

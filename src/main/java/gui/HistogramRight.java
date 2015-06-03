@@ -88,6 +88,7 @@ public class HistogramRight extends JPanel {
             g.drawRect(barWidth * 4, getHeight() - (barHeight * e), barWidth, getHeight());
             g.drawRect(barWidth * 5, getHeight() - (barHeight * f), barWidth, getHeight());
             g.setColor(Color.black);
+
             g.drawString(yName, 10, 20);
 
             updateUI();
