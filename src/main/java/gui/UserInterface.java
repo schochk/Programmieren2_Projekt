@@ -46,8 +46,6 @@ public class UserInterface extends JPanel {
         HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
         panelHistogram.add(histogramRight);
 
-        DataPanel dataPanel = new DataPanel();
-        panelMain.add(dataPanel, BorderLayout.SOUTH);
 
         mainFrame.add(panelMain);
 

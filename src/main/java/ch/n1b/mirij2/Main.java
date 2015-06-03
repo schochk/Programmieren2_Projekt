@@ -23,10 +23,9 @@ public class Main extends JPanel {
         String nameFile = null;
 
         JFileChooser chooser = new JFileChooser();
-        //Scanner inputScanner = null;
+
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File selectedFile = chooser.getSelectedFile();
-            //inputScanner = new Scanner(selectedFile);
             nameFile = selectedFile.getName();
 
 
@@ -44,8 +43,6 @@ public class Main extends JPanel {
                 final SeriesFile seriesFile;
                 try {
                     seriesFile = loader.load(selectedFile); /*inputLine*/
-                    System.out.println(seriesFile.getNames());
-
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
@@ -80,8 +77,6 @@ public class Main extends JPanel {
                     HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einfügen
                     panelHistogram.add(histogramRight);
 
-                    DataPanel dataPanel = new DataPanel();
-                    panelMain.add(dataPanel, BorderLayout.SOUTH);
 
                     mainFrame.add(panelMain);
 
