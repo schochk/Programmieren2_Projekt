@@ -22,13 +22,21 @@ public class HistogramLeft extends JPanel {
     public void histogramLN(String nameX){
         this.xName = nameX;
         this.repaint();
+
     }
 
+    public HistogramLeft(){
+        if (xName != null) {
+            JLabel nameHL = new JLabel(xName);
+            add(nameHL);
+        }
+    }
 
 
     public void paintComponent (Graphics g) {
 
         if (xList != null) {
+
             double maxvx = xList.range().getY();
             double minvx = xList.range().getX();
 
@@ -85,5 +93,6 @@ public class HistogramLeft extends JPanel {
 
         }
     }
+
 
 }
