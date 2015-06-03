@@ -43,6 +43,7 @@ public class Main extends JPanel {
                 final SeriesFile seriesFile;
                 try {
                     seriesFile = loader.load(selectedFile); /*inputLine*/
+                    System.out.println(seriesFile.getNames());
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
