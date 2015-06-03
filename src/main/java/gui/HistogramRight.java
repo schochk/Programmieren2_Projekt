@@ -30,7 +30,7 @@ public class HistogramRight extends JPanel {
     public void paintComponent (Graphics g) {
         if (yList != null) {
             double maxvy = yList.range().getY();
-            double minvy = yList.range().getX();
+            //double minvy = yList.range().getX();
 
             int a = 0;
             int b = 0;
