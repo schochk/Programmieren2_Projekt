@@ -5,6 +5,7 @@ import ch.n1b.mirij2.model.SeriesFile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class ColumnFile implements SeriesFileLoader {
     @Override
-    public SeriesFile load(File file) throws FileNotFoundException {
+    public SeriesFile load(File file) throws FileNotFoundException, IOException {
 
         Scanner scanner = new Scanner(file);
 
