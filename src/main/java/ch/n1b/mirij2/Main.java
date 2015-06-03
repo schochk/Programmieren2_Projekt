@@ -111,6 +111,7 @@ public class Main extends JPanel {
                             scatterPlotPanel.setter(seriex, seriey);
                             histogramLeft.histogramLS(seriex);
                             histogramLeft.histogramLN(nameX);
+                            histogramLeft.histogramLN(nameX);
                             histogramRight.histogramR(seriey, nameY);
 
                         }

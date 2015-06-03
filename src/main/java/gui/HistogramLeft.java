@@ -17,19 +17,26 @@ import gui.MenuPanel;
 public class HistogramLeft extends JPanel {
 
     Serie xList;
+    String xName;
 
 
-    public HistogramLeft(){
 
-        JLabel nameHL = new JLabel("name");
-        add(nameHL);
-
-    }
-    public void histogramL(Serie seriex) {
+    public void histogramLS(Serie seriex) {
         this.xList = seriex;
         this.repaint();
     }
 
+    public void histogramLN(String nameX) {
+        this.xName = nameX;
+        this.repaint();
+
+    }
+    public HistogramLeft(){
+        if (xName != null) {
+            JLabel nameHL = new JLabel(xName);
+            add(nameHL);
+        }
+    }
     public void paintComponent (Graphics g) {
         if (xList != null) {
             double maxvx = xList.range().getY();
