@@ -60,7 +60,8 @@ public class ScatterPlotPanel extends JPanel {
             for (int i = 0; i < xList.size(); i++) {
 
                 g.fillOval((int) ((2 * radius) + (xd * (xList.get(i) - minvx) - 2 * radius)), (int) (getHeight() - (yd * (yList.get(i) - minvy)) - 2 * radius), 2 * radius, 2 * radius);
-            }g.setColor(Color.BLACK);
+            }
+            g.setColor(Color.BLACK);
             g.drawString(yName, 10, 20);
             g.drawString(xName, getWidth()-120, getHeight()-20);
 
