@@ -26,7 +26,6 @@ public class Main extends JPanel {
             File selectedFile = chooser.getSelectedFile();
             nameFile = selectedFile.getName();
 
-
             SeriesFileLoader loader = null;
 
             // Decide which concrete loader to use.
@@ -76,14 +75,12 @@ public class Main extends JPanel {
                     HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einf�gen
                     panelHistogram.add(histogramRight);
 
-
                     mainFrame.add(panelMain);
 
                     JPanel panel = new JPanel();
                     JButton button = new JButton("OK");
                     panel.add(button);
                     panelMenu.add(panel);
-
 
                     final int FRAME_WIDTH = 700;
                     final int FRAME_HEIGHT = 600;
@@ -105,12 +102,9 @@ public class Main extends JPanel {
                             scatterPlotPanel.setter(seriex, seriey, nameX, nameY);
                             histogramLeft.histogramL(seriex, nameX);
                             histogramRight.histogramR(seriey, nameY);
-
-
                         }
 
                     });
-
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -118,14 +112,11 @@ public class Main extends JPanel {
 
                 }
 
-
             } else {
                 System.err.println("Unable to read the values.");
             }
 
         }
-
-
 
     }
 

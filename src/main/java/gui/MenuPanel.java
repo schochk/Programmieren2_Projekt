@@ -17,18 +17,6 @@ public class MenuPanel extends JPanel {
         String variableXList[] = seriesFile.getNames().toArray(new String[0]);
 
         JComboBox variableXSelect = new JComboBox(variableXList);
-
-        /*variableXSelect.addActionListener((ActionEvent e)->{
-                    String nameX = panelMenu.getNameX();
-                    String nameY = panelMenu.getNameY();
-                    Serie seriex = seriesFile.getSerie(nameX);
-                    Serie seriey = seriesFile.getSerie(nameY);
-                    scatterPlotPanel.setter(seriex, seriey, nameX, nameY);
-                    histogramLeft.histogramL(seriex, nameX);
-                    histogramRight.histogramR(seriey, nameY);
-                }
-        );*/
-
         add(variableXSelect);
 
         JLabel variableY = new JLabel("Variabel Y:");
