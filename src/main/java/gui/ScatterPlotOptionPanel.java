@@ -2,8 +2,6 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by schoch on 25.05.15.
@@ -12,17 +10,14 @@ public class ScatterPlotOptionPanel extends JPanel{
 
     public ScatterPlotOptionPanel(ScatterPlotPanel scatterPlotPanel){
 
-        setBackground(Color.PINK);
+        //setBackground(Color.PINK);
 
         final JCheckBox lineButton = new JCheckBox("Draw Lines");
         add(lineButton, BorderLayout.CENTER);
 
-        lineButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
-                else{scatterPlotPanel.drawLine(false);}
-            }
+        lineButton.addActionListener(e -> {
+            if(lineButton.isSelected()){scatterPlotPanel.drawLine(true);}
+            else{scatterPlotPanel.drawLine(false);}
         });
 
         JSlider pointSize = new JSlider (1, 31, 5);

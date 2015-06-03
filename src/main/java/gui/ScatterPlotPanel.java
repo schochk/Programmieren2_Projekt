@@ -1,14 +1,9 @@
 package gui;
 
-import ch.n1b.mirij2.model.DataSeries;
 import ch.n1b.mirij2.model.Serie;
-import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by schoch on 14.05.15.
@@ -53,7 +48,7 @@ public class ScatterPlotPanel extends JPanel {
             double xd = (getWidth() - 2 * radius) / (maxvx - minvx);
             double yd = (getHeight() - 2 * radius) / (maxvy - minvy);
 
-            g.setColor(Color.ORANGE);
+            g.setColor(Color.WHITE);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             g.setColor(Color.BLACK);
 

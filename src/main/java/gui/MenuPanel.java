@@ -4,7 +4,6 @@ package gui;
 import ch.n1b.mirij2.model.SeriesFile;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by schoch on 13.05.15.
@@ -12,9 +11,6 @@ import java.awt.*;
 public class MenuPanel extends JPanel {
 
     public void menuComponent(SeriesFile seriesFile) {
-
-        setBackground(Color.YELLOW);
-
 
         JLabel variableX = new JLabel("Variabel X:");
         add(variableX);
@@ -35,8 +31,6 @@ public class MenuPanel extends JPanel {
 
         add(variableXSelect);
 
-
-
         JLabel variableY = new JLabel("Variabel Y:");
         add(variableY);
 
@@ -45,8 +39,6 @@ public class MenuPanel extends JPanel {
 
         this.boxX = variableXSelect;
         this.boxY = variableYSelect;
-
-
 
     }
 
