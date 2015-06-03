@@ -10,5 +10,7 @@ import java.io.IOException;
  * Created by Mirjam on 13.05.2015.
  */
 public interface SeriesFileLoader {
+
     SeriesFile load(File file) throws FileNotFoundException, IOException;
+
 }
