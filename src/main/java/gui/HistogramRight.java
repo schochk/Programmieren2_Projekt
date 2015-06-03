@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by schoch on 20.05.15.
@@ -14,13 +15,14 @@ public class HistogramRight extends JPanel {
 
     Serie yList;
     String yName;
-
+    double numberOfBars, binSize;
+    List<Integer> bars = new ArrayList<>();
 
     public HistogramRight() {
-
-        JLabel nameHR = new JLabel(yName);
-        add(nameHR);
+        JLabel nameHistogramRight = new JLabel(yName);
+        add(nameHistogramRight);
     }
+
     public void histogramR(Serie seriey, String nameY) {
         this.yList = seriey;
         this.yName = nameY;
@@ -28,72 +30,54 @@ public class HistogramRight extends JPanel {
     }
 
     public void paintComponent (Graphics g) {
+
         if (yList != null) {
             double maxvy = yList.range().getY();
-            //double minvy = yList.range().getX();
+            double minvy = yList.range().getX();
 
-            int a = 0;
-            int b = 0;
-            int c = 0;
-            int d = 0;
-            int e = 0;
-            int f = 0;
+            numberOfBars = Math.sqrt(yList.size());
+            binSize = (maxvy - minvy) / numberOfBars;
 
-            g.setColor(Color.LIGHT_GRAY);
-            g.fillRect(0, 0, this.getWidth(), this.getHeight());
+            int listLength = yList.size();
 
-            for (int i = 0; i < yList.size(); i++) {
+            for (int i = 0; i < numberOfBars; i++) {
+                bars.add(0);
+            }
 
-                if (yList.get(i) <= (maxvy / 6)) {
-                    a = a + 1;
-                } else if ((maxvy / 6) < yList.get(i) && yList.get(i) <= (maxvy / 3)) {
-                    b = b + 1;
-                } else if ((maxvy / 3) < yList.get(i) && yList.get(i) <= (maxvy / 2)) {
-                    c = c + 1;
-                } else if ((maxvy / 2) < yList.get(i) && yList.get(i) <= (maxvy / 1.5)) {
-                    d = d + 1;
-                } else if ((maxvy / 1.5) < yList.get(i) && yList.get(i) <= (maxvy / 1.2)) {
-                    e = e + 1;
-                } else if ((maxvy / 1.2) < yList.get(i) && yList.get(i) <= (maxvy)) {
-                    f = f + 1;
+            for (int j = 0; j < numberOfBars; j++) {
+                for (int i = 0; i < listLength; i++) {
+                    if (minvy + (binSize * j) <= yList.get(i) && yList.get(i) < minvy + (binSize * (j + 1))) {
+                        bars.set(j, (bars.get(j) + 1));
+                    }
                 }
             }
 
-            ArrayList<Integer> heightX = new ArrayList<>();
-            heightX.add(a);
-            heightX.add(b);
-            heightX.add(c);
-            heightX.add(d);
-            heightX.add(e);
-            heightX.add(f);
-            double maxValue = Collections.max(heightX);
+        double maxBin = Collections.max(bars);
+        int barWidth = (int) (getWidth() / numberOfBars);
+        double height = getHeight();
 
+            g.setColor(Color.GRAY);
+            g.fillRect(0,0, this.getWidth(), this.getHeight());
 
-            int barHeight = (int) (getHeight()/maxValue);
-            int barWidth = getWidth() / 6;
+        g.setColor(Color.GREEN);
+        for (int i = 0; i < bars.size(); i++) {
+            g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+        }
 
-            g.setColor(Color.GREEN);
-            g.fillRect(0, getHeight() - (barHeight * a), barWidth, getHeight());
-            g.fillRect(barWidth, getHeight() - barHeight * b, barWidth, getHeight());
-            g.fillRect(barWidth * 2, getHeight() - (barHeight * c), barWidth, getHeight());
-            g.fillRect(barWidth * 3, getHeight() - (barHeight * d), barWidth, getHeight());
-            g.fillRect(barWidth * 4, getHeight() - (barHeight * e), barWidth, getHeight());
-            g.fillRect(barWidth * 5, getHeight() - (barHeight * f), barWidth, getHeight());
+        g.setColor(Color.BLUE);
+        for (int i = 0; i < bars.size(); i++) {
+            g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+        }
 
-            g.setColor(Color.BLUE);
-            g.drawRect(0, getHeight() - (barHeight * a), barWidth, getHeight());
-            g.drawRect(barWidth, getHeight() - barHeight * b, barWidth, getHeight());
-            g.drawRect(barWidth * 2, getHeight() - (barHeight * c), barWidth, getHeight());
-            g.drawRect(barWidth * 3, getHeight() - (barHeight * d), barWidth, getHeight());
-            g.drawRect(barWidth * 4, getHeight() - (barHeight * e), barWidth, getHeight());
-            g.drawRect(barWidth * 5, getHeight() - (barHeight * f), barWidth, getHeight());
-            g.setColor(Color.black);
+        g.setColor(Color.BLACK);
+        g.drawString(yName, 10, 20);
 
-            g.drawString(yName, 10, 20);
-
-            updateUI();
-
+        updateUI();
         }
     }
 }
+
+
+
+
 
