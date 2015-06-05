@@ -38,7 +38,7 @@ public class Main extends JPanel {
             if (loader != null) {
                 final SeriesFile seriesFile;
                 try {
-                    seriesFile = loader.load(selectedFile); /*inputLine*/
+                    seriesFile = loader.load(selectedFile);
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
