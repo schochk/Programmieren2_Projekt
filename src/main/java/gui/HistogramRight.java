@@ -15,7 +15,7 @@ public class HistogramRight extends JPanel {
 
     Serie yList;
     String yName;
-    int numberOfBars, binSize;
+    double numberOfBars, binSize;
     List<Integer> bars = new ArrayList<>();
 
     public HistogramRight() {
@@ -35,8 +35,8 @@ public class HistogramRight extends JPanel {
             double maxvy = yList.range().getY();
             double minvy = yList.range().getX();
 
-            numberOfBars = (int) Math.sqrt(yList.size());
-            binSize = (int) ((maxvy - minvy) / numberOfBars);
+            numberOfBars = Math.sqrt(yList.size());
+            binSize = (maxvy - minvy) / numberOfBars;
 
             int listLength = yList.size();
 
@@ -53,7 +53,7 @@ public class HistogramRight extends JPanel {
             }
 
         double maxBin = Collections.max(bars);
-        int barWidth = (getWidth() / numberOfBars);
+        int barWidth = (int) (getWidth() / numberOfBars);
         double height = getHeight();
 
             g.setColor(Color.GRAY);
