@@ -28,9 +28,8 @@ public class Main extends JPanel {
 
             SeriesFileLoader loader = null;
 
-            // Decide which concrete loader to use.
             if (nameFile.endsWith("txt")) {
-                loader = new ColumnFile(); //tab-delimited
+                loader = new ColumnFile();
             } else if (nameFile.endsWith("lin")) {
                 loader = new RowFile();
             } else {
@@ -40,7 +39,6 @@ public class Main extends JPanel {
                 final SeriesFile seriesFile;
                 try {
                     seriesFile = loader.load(selectedFile); /*inputLine*/
-                    System.out.println(seriesFile.getNames());
                     JFrame mainFrame = new JFrame();
                     mainFrame.setLayout(new BorderLayout());
 
