@@ -10,8 +10,6 @@ public class ScatterPlotOptionPanel extends JPanel{
 
     public ScatterPlotOptionPanel(ScatterPlotPanel scatterPlotPanel){
 
-        //setBackground(Color.PINK);
-
         final JCheckBox lineButton = new JCheckBox("Draw Lines");
         add(lineButton, BorderLayout.CENTER);
 

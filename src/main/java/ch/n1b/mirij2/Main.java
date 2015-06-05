@@ -47,7 +47,7 @@ public class Main extends JPanel {
                     JPanel panelMain = new JPanel();
                     panelMain.setLayout(new BorderLayout());
 
-                    MenuPanel panelMenu = new MenuPanel();          //MenuPanel
+                    MenuPanel panelMenu = new MenuPanel();
                     panelMenu.menuComponent(seriesFile);
                     panelMain.add(panelMenu, BorderLayout.NORTH);
 
@@ -59,20 +59,20 @@ public class Main extends JPanel {
                     panelScatterPlot.setLayout(new BorderLayout());
                     panelPlot.add(panelScatterPlot);
 
-                    final ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel(); //ScatterPlot einf�gen
+                    final ScatterPlotPanel scatterPlotPanel = new ScatterPlotPanel();
                     panelScatterPlot.add(scatterPlotPanel, BorderLayout.CENTER);
 
-                    ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);      //Optionen
+                    ScatterPlotOptionPanel scatterPlotOptionPanel = new ScatterPlotOptionPanel(scatterPlotPanel);
                     panelScatterPlot.add(scatterPlotOptionPanel, BorderLayout.NORTH);
 
                     JPanel panelHistogram = new JPanel();
                     panelHistogram.setLayout(new GridLayout(1, 2));
                     panelPlot.add(panelHistogram);
 
-                    HistogramLeft histogramLeft = new HistogramLeft();  //Histogramm Links einf�gen
+                    HistogramLeft histogramLeft = new HistogramLeft();
                     panelHistogram.add(histogramLeft);
 
-                    HistogramRight histogramRight = new HistogramRight();   //Histogramm Rechts einf�gen
+                    HistogramRight histogramRight = new HistogramRight();
                     panelHistogram.add(histogramRight);
 
                     mainFrame.add(panelMain);
@@ -87,7 +87,7 @@ public class Main extends JPanel {
                     mainFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
                     mainFrame.setTitle(nameFile);
                     mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    mainFrame.setLocationRelativeTo(null); // center on screen
+                    mainFrame.setLocationRelativeTo(null);
 
                     mainFrame.setVisible(true);
 
@@ -102,6 +102,7 @@ public class Main extends JPanel {
                             scatterPlotPanel.setter(seriex, seriey, nameX, nameY);
                             histogramLeft.histogramL(seriex, nameX);
                             histogramRight.histogramR(seriey, nameY);
+
                         }
 
                     });

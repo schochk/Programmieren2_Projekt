@@ -15,7 +15,7 @@ public class HistogramLeft extends JPanel {
 
     Serie xList;
     String xName;
-    double numberOfBars, binSize;
+    int numberOfBars, binSize;
     List<Integer> bars = new ArrayList<>();
 
     public void histogramL(Serie seriex, String nameX) {
@@ -26,19 +26,20 @@ public class HistogramLeft extends JPanel {
 
     public void paintComponent (Graphics g) {
 
-        if (xList != null) {
+       if (xList != null) {
 
             double maxvx = xList.range().getY();
             double minvx = xList.range().getX();
 
-            numberOfBars = Math.sqrt(xList.size());
-            binSize = (maxvx - minvx) / numberOfBars;
+            numberOfBars = (int) Math.sqrt(xList.size());
+            binSize = (int)((maxvx - minvx) / numberOfBars);
 
             int listLength = xList.size();
 
             for (int i = 0; i < numberOfBars; i++) {
                 bars.add(0);
             }
+
 
             for (int j = 0; j < numberOfBars; j++) {
                 for (int i = 0; i < listLength; i++) {
@@ -48,25 +49,26 @@ public class HistogramLeft extends JPanel {
                 }
             }
 
-            double maxBin = Collections.max(bars);
-            int barWidth = (int) (getWidth() / numberOfBars);
-            double height = getHeight();
+                double maxBin = Collections.max(bars);
+                int barWidth = (getWidth() / numberOfBars);
+                double height = getHeight();
 
-            g.setColor(Color.BLUE);
-            for (int i = 0; i < bars.size(); i++) {
-                g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+                g.setColor(Color.BLUE);
+                for (int i = 0; i < bars.size(); i++) {
+                    g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+                }
+
+                g.setColor(Color.ORANGE);
+                for (int i = 0; i < bars.size(); i++) {
+                    g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+                }
+
+                g.setColor(Color.BLACK);
+                g.drawString(xName, 10, 20);
+
+                updateUI();
             }
 
-            g.setColor(Color.ORANGE);
-            for (int i = 0; i < bars.size(); i++) {
-                g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
-            }
-
-            g.setColor(Color.BLACK);
-            g.drawString(xName, 10, 20);
-
-            updateUI();
-        }
     }
 }
 
