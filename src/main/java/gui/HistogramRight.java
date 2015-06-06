@@ -54,28 +54,28 @@ public class HistogramRight extends JPanel {
                 }
             }
 
-        double maxBin = Collections.max(bars);
-        int barWidth = (getWidth() / numberOfBars);
-        double height = getHeight();
-
+            double maxBin = Collections.max(bars);
+            int barWidth = (getWidth() / numberOfBars);
+            double height = getHeight();
             g.setColor(Color.GRAY);
             g.fillRect(0,0, this.getWidth(), this.getHeight());
 
-        g.setColor(Color.GREEN);
-        for (int i = 0; i < bars.size(); i++) {
+
+            g.setColor(Color.GREEN);
+            for (int i = 0; i < bars.size(); i++) {
             g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
-        }
+            }
 
-        g.setColor(Color.BLUE);
-        for (int i = 0; i < bars.size(); i++) {
+            g.setColor(Color.BLUE);
+            for (int i = 0; i < bars.size(); i++) {
             g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
-        }
+            }
 
-        g.setColor(Color.BLACK);
-        g.drawString(yName, 10, 20);
+            g.setColor(Color.BLACK);
+            g.drawString(yName, 10, 20);
 
-        repaint();
-        }
+            repaint();
+            }
     }
 }
 
