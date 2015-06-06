@@ -15,8 +15,8 @@ public class HistogramLeft extends JPanel {
 
     Serie xList;
     String xName;
-    double numberOfBars, binSize;
-    List<Integer> bars = new ArrayList<>();
+    int numberOfBars;
+    double binSize;
 
     public void histogramL(Serie serieX, String nameX) {
         this.xList = serieX;
@@ -31,11 +31,12 @@ public class HistogramLeft extends JPanel {
             double maxVariableX = xList.range().getY();
             double minVariableX = xList.range().getX();
 
-            numberOfBars = Math.sqrt(xList.size());
+            numberOfBars = (int)Math.sqrt(xList.size());
             binSize = (maxVariableX - minVariableX) / numberOfBars;
 
             int listLength = xList.size();
 
+            List<Integer> bars = new ArrayList<>();
             for (int i = 0; i < numberOfBars; i++) {
                 bars.add(0);
             }
@@ -50,7 +51,7 @@ public class HistogramLeft extends JPanel {
             }
 
                 double maxBin = Collections.max(bars);
-                int barWidth = (int) (getWidth() / numberOfBars);
+                int barWidth = (getWidth() / numberOfBars);
                 double height = getHeight();
 
                 g.setColor(Color.BLUE);
