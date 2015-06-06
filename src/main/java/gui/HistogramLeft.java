@@ -66,7 +66,7 @@ public class HistogramLeft extends JPanel {
                 g.setColor(Color.BLACK);
                 g.drawString(xName, 10, 20);
 
-                updateUI();
+                repaint();
             }
 
     }

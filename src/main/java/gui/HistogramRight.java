@@ -72,7 +72,7 @@ public class HistogramRight extends JPanel {
         g.setColor(Color.BLACK);
         g.drawString(yName, 10, 20);
 
-        updateUI();
+        repaint();
         }
     }
 }
