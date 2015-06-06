@@ -18,9 +18,9 @@ public class ScatterPlotPanel extends JPanel {
 
     int radius = 5;
 
-    public void setter(Serie seriex, Serie seriey, String nameX, String nameY) {
-        this.xList = seriex;
-        this.yList = seriey;
+    public void setter(Serie serieX, Serie serieY, String nameX, String nameY) {
+        this.xList = serieX;
+        this.yList = serieY;
         this.xName = nameX;
         this.yName = nameY;
         this.repaint();
@@ -39,14 +39,14 @@ public class ScatterPlotPanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         if (xList != null && yList != null) {
-            double maxvx = xList.range().getY();
-            double maxvy = yList.range().getY();
-            double minvx = xList.range().getX();
-            double minvy = yList.range().getX();
+            double maxVariableX = xList.range().getY();
+            double maxVariableY = yList.range().getY();
+            double minVariableX = xList.range().getX();
+            double minVariableY = yList.range().getX();
 
 
-            double xd = (getWidth() - 2 * radius) / (maxvx - minvx);
-            double yd = (getHeight() - 2 * radius) / (maxvy - minvy);
+            double xd = (getWidth() - 2 * radius) / (maxVariableX - minVariableX);
+            double yd = (getHeight() - 2 * radius) / (maxVariableY - minVariableY);
 
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -54,7 +54,7 @@ public class ScatterPlotPanel extends JPanel {
 
             for (int i = 0; i < xList.size(); i++) {
 
-                g.fillOval((int) ((2 * radius) + (xd * (xList.get(i) - minvx) - 2 * radius)), (int) (getHeight() - (yd * (yList.get(i) - minvy)) - 2 * radius), 2 * radius, 2 * radius);
+                g.fillOval((int) ((2 * radius) + (xd * (xList.get(i) - minVariableX) - 2 * radius)), (int) (getHeight() - (yd * (yList.get(i) - minVariableY)) - 2 * radius), 2 * radius, 2 * radius);
             }
             g.setColor(Color.BLACK);
             g.drawString(yName, 10, 20);
@@ -64,11 +64,11 @@ public class ScatterPlotPanel extends JPanel {
             if (drawLines) {
                 for (int i = 0; i < xList.size() - 1; i++) {
                     int j = i + 1;
-                    int ax = (int) ((2 * radius) + (xd * (xList.get(i) - minvx) - 2 * radius) + radius);
-                    int ay = (int) (getHeight() - (yd * (yList.get(i) - minvy)) - 2 * radius + radius);
+                    int ax = (int) ((2 * radius) + (xd * (xList.get(i) - minVariableX) - 2 * radius) + radius);
+                    int ay = (int) (getHeight() - (yd * (yList.get(i) - minVariableY)) - 2 * radius + radius);
 
-                    int bx = (int) ((2 * radius) + (xd * (xList.get(j) - minvx) - 2 * radius) + radius);
-                    int by = (int) (getHeight() - (yd * (yList.get(j) - minvy)) - 2 * radius + radius);
+                    int bx = (int) ((2 * radius) + (xd * (xList.get(j) - minVariableX) - 2 * radius) + radius);
+                    int by = (int) (getHeight() - (yd * (yList.get(j) - minVariableY)) - 2 * radius + radius);
 
                     g.drawLine(ax, ay, bx, by);
                 }

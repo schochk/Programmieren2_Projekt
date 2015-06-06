@@ -23,8 +23,8 @@ public class HistogramRight extends JPanel {
         add(nameHistogramRight);
     }
 
-    public void histogramR(Serie seriey, String nameY) {
-        this.yList = seriey;
+    public void histogramR(Serie serieY, String nameY) {
+        this.yList = serieY;
         this.yName = nameY;
         this.repaint();
     }
@@ -32,11 +32,11 @@ public class HistogramRight extends JPanel {
     public void paintComponent (Graphics g) {
 
         if (yList != null) {
-            double maxvy = yList.range().getY();
-            double minvy = yList.range().getX();
+            double maxVariableY = yList.range().getY();
+            double minVariableY = yList.range().getX();
 
             numberOfBars = Math.sqrt(yList.size());
-            binSize = (maxvy - minvy) / numberOfBars;
+            binSize = (maxVariableY - minVariableY) / numberOfBars;
 
             int listLength = yList.size();
 
@@ -46,7 +46,7 @@ public class HistogramRight extends JPanel {
 
             for (int j = 0; j < numberOfBars; j++) {
                 for (int i = 0; i < listLength; i++) {
-                    if (minvy + (binSize * j) <= yList.get(i) && yList.get(i) < minvy + (binSize * (j + 1))) {
+                    if (minVariableY + (binSize * j) <= yList.get(i) && yList.get(i) < minVariableY + (binSize * (j + 1))) {
                         bars.set(j, (bars.get(j) + 1));
                     }
                 }

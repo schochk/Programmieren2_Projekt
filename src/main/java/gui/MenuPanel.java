@@ -42,7 +42,5 @@ public class MenuPanel extends JPanel {
         return namey;
     }
 
-    public void menuComponent() {
-    }
 }
 
