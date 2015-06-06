@@ -15,8 +15,6 @@ public class HistogramRight extends JPanel {
 
     Serie yList;
     String yName;
-    int numberOfBars;
-    double binSize;
 
     public HistogramRight() {
         JLabel nameHistogramRight = new JLabel(yName);
@@ -36,8 +34,8 @@ public class HistogramRight extends JPanel {
             double maxVariableY = yList.range().getY();
             double minVariableY = yList.range().getX();
 
-            numberOfBars = (int) Math.sqrt(yList.size());
-            binSize = (maxVariableY - minVariableY) / numberOfBars;
+            int numberOfBars =  (int) Math.sqrt(yList.size());
+            double binSize = (maxVariableY - minVariableY) / numberOfBars;
 
             int listLength = yList.size();
 
@@ -60,15 +58,14 @@ public class HistogramRight extends JPanel {
             g.setColor(Color.GRAY);
             g.fillRect(0,0, this.getWidth(), this.getHeight());
 
-
             g.setColor(Color.GREEN);
             for (int i = 0; i < bars.size(); i++) {
-            g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+                g.fillRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
             }
 
             g.setColor(Color.BLUE);
             for (int i = 0; i < bars.size(); i++) {
-            g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
+                g.drawRect((barWidth * i), (int) (height - (height / maxBin * bars.get(i))), barWidth, (int) height);
             }
 
             g.setColor(Color.BLACK);

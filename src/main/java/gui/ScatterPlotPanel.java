@@ -45,8 +45,8 @@ public class ScatterPlotPanel extends JPanel {
             double minVariableY = yList.range().getX();
 
 
-            double xd = (getWidth() - 2 * radius) / (maxVariableX - minVariableX);
-            double yd = (getHeight() - 2 * radius) / (maxVariableY - minVariableY);
+            double deltaX = (getWidth() - 2 * radius) / (maxVariableX - minVariableX);
+            double deltaY = (getHeight() - 2 * radius) / (maxVariableY - minVariableY);
 
             g.setColor(Color.WHITE);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -54,7 +54,7 @@ public class ScatterPlotPanel extends JPanel {
 
             for (int i = 0; i < xList.size(); i++) {
 
-                g.fillOval((int) ((2 * radius) + (xd * (xList.get(i) - minVariableX) - 2 * radius)), (int) (getHeight() - (yd * (yList.get(i) - minVariableY)) - 2 * radius), 2 * radius, 2 * radius);
+                g.fillOval((int) ((2 * radius) + (deltaX * (xList.get(i) - minVariableX) - 2 * radius)), (int) (getHeight() - (deltaY * (yList.get(i) - minVariableY)) - 2 * radius), 2 * radius, 2 * radius);
             }
             g.setColor(Color.BLACK);
             g.drawString(yName, 10, 20);
@@ -64,11 +64,11 @@ public class ScatterPlotPanel extends JPanel {
             if (drawLines) {
                 for (int i = 0; i < xList.size() - 1; i++) {
                     int j = i + 1;
-                    int ax = (int) ((2 * radius) + (xd * (xList.get(i) - minVariableX) - 2 * radius) + radius);
-                    int ay = (int) (getHeight() - (yd * (yList.get(i) - minVariableY)) - 2 * radius + radius);
+                    int ax = (int) ((2 * radius) + (deltaX * (xList.get(i) - minVariableX) - 2 * radius) + radius);
+                    int ay = (int) (getHeight() - (deltaY * (yList.get(i) - minVariableY)) - 2 * radius + radius);
 
-                    int bx = (int) ((2 * radius) + (xd * (xList.get(j) - minVariableX) - 2 * radius) + radius);
-                    int by = (int) (getHeight() - (yd * (yList.get(j) - minVariableY)) - 2 * radius + radius);
+                    int bx = (int) ((2 * radius) + (deltaX * (xList.get(j) - minVariableX) - 2 * radius) + radius);
+                    int by = (int) (getHeight() - (deltaY * (yList.get(j) - minVariableY)) - 2 * radius + radius);
 
                     g.drawLine(ax, ay, bx, by);
                 }
